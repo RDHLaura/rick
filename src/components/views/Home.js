@@ -3,9 +3,10 @@ import {LOGIN, LOGOUT} from "../../config/router/paths";
 
 export  function Home() {
     const root = document.getElementById('root');
-    root.classList.add('theme--light');
+    root.classList.add('body');
+    root.classList.add('theme');
     return (
-        <main className="mainFrame back">
+        <main className="mainFrame">
             <header className="header">
                 <img className="imag-portada" src={require("../../assets/images/rickAndMorty_home.jpg")} alt="Portada Rick and Morty"/>
             </header>
