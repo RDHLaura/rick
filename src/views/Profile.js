@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
-import {LOGOUT} from "../../config/router/paths";
-import {useAuthContext} from "../../contexts/authContext";
+import {LOGOUT} from "../config/router/paths";
+import {useAuthContext} from "../contexts/authContext";
 
 export  function Profile() {
 

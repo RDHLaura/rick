@@ -1,12 +1,13 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {LOGIN, PROFILE, HOME,LOGOUT} from "./config/router/paths";
-import {Login} from "./components/views/Login";
-import {Profile} from "./components/views/Profile";
-import {Logout} from "./components/views/Logout";
-import {Home} from "./components/views/Home";
+import {LOGIN, REGISTER, PROFILE, HOME,LOGOUT} from "./config/router/paths";
+import {Login} from "./views/Login";
+import {Profile} from "./views/Profile";
+import {Logout} from "./views/Logout";
+import {Home} from "./views/Home";
 import {AuthContextProvider} from "./contexts/authContext";
 import {PublicRoute} from "./components/router/PublicRoute";
 import {PrivateRoute} from "./components/router/PrivateRoute";
+import {Register} from "./views/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                   <Route path="/" element={<PublicRoute />}>
                       <Route index element={<Home />} />
                       <Route path={LOGIN} element={<Login />} />
+                      <Route path={REGISTER} element={<Register />} />
                   </Route>
                   <Route path={PROFILE} element={<PrivateRoute />}>
                       <Route index element={<Profile />} />

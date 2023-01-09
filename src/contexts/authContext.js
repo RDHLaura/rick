@@ -13,8 +13,6 @@ export function AuthContextProvider ({children}){
     const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('logged')) ?? false;
 
     const login = useCallback(function (){
-        //comprobar si el usuario y contraseña es correcto antes de cambiar el valor
-        //pasar los datos del email y contraseña por parámetros y hacer las comprobaciones
         localStorage.setItem('logged', true);
         setIsAuthenticated(true);
     }, [])
