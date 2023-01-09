@@ -1,0 +1,18 @@
+//da estilo a un boton
+.form-button
+    border-radius: 10px
+    background-color:  var(--color_background_boton)
+    width: auto //tamaño automatico teniendo en cuenta el texto y el padding
+    padding: 0.8rem 1.6rem
+    color: var(--color_letra_boton)
+    font-weight: bold
+    font-size: 1em
+    transition: all 0.5s linear //se pone para que haga la transición al quitarse el efecto también
+    min-width: 10vw
+    text-align: center
+    
+    &:hover //crea una sombra luminosa
+        box-shadow: 0 3px 5px 0 var(--color_letra_boton_hover) //se pone una sombra del mismo color que la letra del boton
+        color: var(--color_letra_boton_hover)
+        background-color: var(--color_background_boton_hover)
+        transition: all 0.5s linear

@@ -1,0 +1,52 @@
+footer
+    background-color: basic.$oscuro_principal        
+    color: basic.$acento_luminoso
+    //posiciono el footer al final de la pag en posición absoluta de manera que esté siempre al final de la 
+    //página o de la pantalla si el contenido es más pequeño 
+    //para ello le doy al main un margin bottom del tamaño del footer y al footer una posición absoluta situandolo al final
+    position: absolute
+    width: 100%
+    @media(max-width: 750px) 
+        height: 50vh
+    bottom: 0
+    //se disponen los elementos en una columna de dos filas
+    display: flex
+    flex-direction: column
+    
+    .footer-main //contiene todos los enlaces a las redes, logo y contacto
+        text-align: center
+        display: flex
+        flex-direction: row //se disponen los elementos en fila
+        align-items: end //alineados al final de su contenedor
+        justify-content: space-between
+        padding: 0rem 1rem
+        border-block-end: 2px solid basic.$acento_luminoso  //con esto creo la línea de separación con el otro elemento del footer 
+        @media(max-width: 750px) //recoloca los elementos en columna si la ventana es menor de 750px
+            flex-direction: column
+            align-items: center
+        .social-media-links //agrupa los iconos de las redes 
+            text-align: left    
+            border-style: none        
+            .legend-redes 
+                font-size: 1em
+                font-weight: lighter                
+            .redes
+                display: flex
+                flex-direction: row
+                gap: 0.5rem
+                img
+                    width: 35px
+        .condiciones_uso
+            font-size: 0.8em
+            text-align: center
+            .link //sobreescribe el tamaño de la fuente para ese elemento
+                font-size: 1em
+        .contacto
+            font-size: 1em
+    .footer-secundary //contiene el copy de la pág
+        padding: 0rem 1rem
+        text-align: end
+        font-size: 0.8em
+        
+
+   

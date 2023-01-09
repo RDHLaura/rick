@@ -1,0 +1,23 @@
+@use "./_basic"
+html
+    position: relative
+    min-height: 100%
+    font-family: basic.$letra_principal
+
+.body 
+    background: var(--background_principal)
+    background-size: cover
+    display: flex
+    flex-direction: column
+    color: var(--color_letras)
+    margin-bottom: 35vh //deja el margen del espacio que ocupa el footer
+    @media(max-width: 750px) 
+        margin-bottom: 50vh
+
+
+.mainFrame //estable el main del body en una columna con flex
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 2rem
+    padding-bottom: 2vh

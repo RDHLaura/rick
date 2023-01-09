@@ -1,0 +1,87 @@
+.event-header //contiene la imagen y el título del evento
+    //posicionados en una columna 
+    margin-top: 1vw
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    .event-img
+        height: 60vh //cogemos el ancho de la pantalla para establecer el alto de la imagen como referencia para hacerlo responsive
+        width: 75%
+        @media(max-width: 700px)
+            width: 100%
+            height: 50vh
+        overflow: hidden //oculta la parte sobrante de la imágen que contiene el div
+        img
+            object-fit: contain //ajusta el tamaño de la imagen al de su contenedor
+            width: 100%
+    .name-event //sobreescribe el tamaño de la fuente de la clase title
+        font-size: 4vw
+        margin-top: 0
+        @media(max-width: 750px)
+            font-size: 3rem
+        @media(max-width: 400px)
+            font-size: 2rem
+            padding: 0
+.event-information2 
+    //se crea un grid de 12 columnas y 6 filas para organizar el contenido
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-rows: repeat(6, 1fr)
+    grid-column-gap: 10px  
+    align-items: start
+    color: var(--color_letras)
+    font-size: 1rem 
+    @media(max-width: 700px) //establecemos una media para redistribuir el contenido cuando la ventana sea menor de 700px
+        grid-template-columns: repeat(4, 1fr) //el grid será de 4 columnas y 7 filas
+        grid-template-rows: repeat(7, 1fr) 
+        //quitamos los gaps para aprovechar el espacio
+        grid-column-gap: 0px
+        grid-row-gap: 0px 
+    
+    .title-h2-position //posicionamos el segundo título dentro del grid
+        grid-area: 1 / 2 / 2 / 9
+        text-align: start
+        font-size: 2rem
+        @media(max-width: 700px)
+            grid-area: 1 / 1 / 2 / 5
+            font-size: 2rem
+        @media(max-width: 500px)
+            font-size: 1.5rem
+    .date //posicionamos la info del día del evento en el grid
+        grid-area: 2 / 2 / 3 / 5        
+        @media(max-width: 700px)
+            grid-area: 2 / 1 / 4 / 3
+    .place //posicionamos la info del lugar del evento en el grid
+        grid-area: 2 / 6 / 3 / 9
+        @media(max-width: 700px)
+            grid-area: 2 / 3 / 4 / 5
+    .info //creamos esta clase para aplicarla a la etiqueta p que contendrá la info de la api
+        word-break: break-all
+    .mapa //colocamos y damos el tamaño a la imagen que muestra la ubicación del evento 
+        grid-area: 3 / 2 / 7 / 9
+        width: 100%
+        @media(max-width: 700px)
+            grid-area: 4 / 1 / 8 / 5
+            margin-top: 25vh
+    .buy-buttom2 //aplicamos esta clase a la section que contiene el botón de compra
+        grid-area: 2 / 10 / 3 / 12 //lo posicionamos en la segunda columna
+        
+        @media(max-width: 700px) //lo reubicamos según el tamaño de la ventana
+            grid-area: 3 / 2 / 4 / 4
+           
+        @media(max-width: 400px) //cuando la ventana sea menor de 400px el botón ocupará todo el ancho de pantalla
+            grid-area: 3 / 1 / 5 / 5
+            margin: 0 1rem
+            margin-top: 15vh
+        .buttom-price //aplicada al fieldset que agrupa el botón de compra y el párrafo con el precio del evento
+            width: auto
+            text-align: center
+            background-color: rgba(171, 171, 199, 0.30)
+            padding: 1rem 2rem            
+            border-radius: 9%
+            font-size: 1rem 
+            .precio //elimino cualquier margen aplicado al p que contiene el precio
+                margin: 0
+        
+            

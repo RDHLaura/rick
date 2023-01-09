@@ -1,0 +1,12 @@
+//grid de la pagina listado de eventos
+.grid-content 
+    display: grid
+    justify-content: center   
+    //autocompleta las columnas con cartas de evento de 300px minimo o 1 fr cuando no quepa una de 300px
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+    @media(max-width: 500px) //establecemos una sola carta por columna de un mínimo de 350px y un max de 1 frame
+        grid-template-columns: repeat(1, minmax(350px, 1fr))
+    justify-items: center
+    width: 98%
+    gap: 5vh 2vw 
+

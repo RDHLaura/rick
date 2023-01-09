@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@300;400;700&family=Permanent+Marker&display=swap')
+    
+
+$acento_luminoso: #f9f9f9
+$luminoso_principal: rgb(171, 171, 199)
+$principal: rgb(188, 121, 157)
+$oscuro_secundario: rgb(48, 51, 90)
+$oscuro_principal: rgb(32, 36, 51)
+$background_principal_dark: #0a0a0a
+$background_card: linear-gradient(rgb(6, 7, 12, 0.97), rgb(8, 8, 14, 0.97)), url("../../images/fondo.png") no-repeat center
+$background_principal_light: radial-gradient(ellipse at top, $oscuro_secundario, transparent),radial-gradient(ellipse at bottom, $principal, transparent)
+$background_card_light:rgba(171, 171, 199, 0.5)
+//tema principal
+.theme
+    --color_letras: #{$acento_luminoso} 
+    --color_titulo: #{$principal}  
+    --background_principal: #{$background_principal_dark}
+    --background_card: #{$background_card}
+    --letra_boton: #{$oscuro_principal}
+    --color_background_boton: #{$principal}
+    --color_letra_boton: #{$oscuro_principal}
+    --color_background_boton_hover: #{$oscuro_principal}
+    --color_letra_boton_hover: #{$principal}
+    //tema claro
+    &--light
+        --color_letras: #{$oscuro_principal}
+        --background_principal: #{$background_principal_light}
+        --background_card: #{$background_card_light}
+        --color_titulo: #{$oscuro_principal} 
+        --letra_boton: #{$principal}
+        --color_background_boton: #{$oscuro_principal}
+        --color_letra_boton: #{$principal}
+        --color_background_boton_hover: #{$principal}
+        --color_letra_boton_hover: #{$oscuro_principal}
+
+$letra_acentos : 'Permanent Marker', cursive
+$letra_principal : 'Biryani', sans-serif
+
+
+
+
+

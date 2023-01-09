@@ -1,0 +1,16 @@
+.form-input //da estilo al imput
+    border-block-end: 1px solid var(--color_letras) //muestra solo el borde final de la caja 
+    width: 100%
+    color: var(--color_letras)
+    font-weight: 100
+    transition: all 0.3s linear
+    &::placeholder
+        color: var(--color_letras)
+    &:focus    //crea una transición al seleccionar el input
+        color: var(--color_letras)
+        font-weight: 500
+        border: 2px solid var(--color_letras)
+        border-radius: 4px
+        padding: 0.5rem
+        transition: all 0.3s linear
+

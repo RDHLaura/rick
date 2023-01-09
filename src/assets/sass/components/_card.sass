@@ -1,0 +1,75 @@
+.event //clase principal de la carta evento afecta a todo el article
+    color: var(--color_letras)
+    font-size: 1rem  
+    font-weight: 500
+    position: relative
+    min-width: 300px
+    box-shadow: 0 3px 5px 0 basic.$luminoso_principal
+    background: var(--background_card)
+    border-radius: 10px
+    .link-card //posiciona una etiqueta a encima del contenido de la tarjeta
+        display: block
+        z-index: 1
+        text-align: center
+        width: 100%
+        &::after //creo un pseudoelemento que se posiciona encima del padre creando así que la tarjeta del concierto sea un link
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            content: ' '
+            width: 100%
+    .event-content //         
+        .image_div
+            position: relative 
+            display: block 
+            height: 50%  
+            width: 100%
+            overflow: hidden
+            border-radius: 10px 
+            .image
+                width: 100%
+                position: relative    
+            .fa-heart
+                position: absolute 
+                right: 15px
+                top: 15px
+                font-size: 1.3rem                    
+                color: basic.$acento_luminoso
+                opacity: 0.4         
+                z-index: 2 //damos un valor alto en el eje z para que el icono se posicione encima de todo
+                &:hover
+                    font-size: 1.2em
+                    transition: all 0.3s linear
+            .fa-heart-active
+                color: basic.$acento_luminoso
+                opacity: 1 
+                font-size: 1.6rem
+                &:hover
+                    font-size: 1.4rem
+                    transition: all 0.3s linear
+
+        .information-box
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            height: 50%  
+            width: 100%
+            text-align: center            
+            padding-bottom: 1rem
+            word-break: break-all //hace que el texto que no quepa en el contenedor pase a la siguiente línea
+            border-style: none
+            p
+                margin: 0   
+        .concert-name
+            color: var(--color_titulo)
+            font-weight: bolder
+            font-size: 1.3rem            
+            padding-bottom: 1rem  
+    
+    &:hover
+        box-shadow: 0 5px 8px 0 var(--color_titulo)
+    
+
+
