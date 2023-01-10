@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {LOGIN, REGISTER, PROFILE, HOME,LOGOUT} from "./config/router/paths";
+import {LOGIN, REGISTER, PROFILE, HOME, LOGOUT, DASHBOARD} from "./config/router/paths";
 import {Login} from "./components/views/Login";
 import {Profile} from "./components/views/Profile";
 import {Logout} from "./components/views/Logout";
@@ -10,6 +10,8 @@ import {PrivateRoute} from "./components/router/PrivateRoute";
 import {Register} from "./components/views/Register";
 import {Footer} from "./components/Footer";
 import React from "react";
+import {Dashboard} from "./components/views/Dashboard";
+import {Navbar} from "./components/Navbar";
 
 function App() {
   return (
@@ -18,18 +20,19 @@ function App() {
     <>
       <AuthContextProvider>
           <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<PublicRoute />}>
-                      <Route index element={<Home />} />
-                      <Route path={LOGIN} element={<Login />} />
-                      <Route path={REGISTER} element={<Register />} />
-                  </Route>
-                  <Route path={PROFILE} element={<PrivateRoute />}>
-                      <Route index element={<Profile />} />
-                      <Route path={LOGOUT} element={<Logout />} />
-                  </Route>
-
-              </Routes>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<PublicRoute />}>
+                <Route index element={<Home />} />
+                <Route path={LOGIN} element={<Login />} />
+                <Route path={REGISTER} element={<Register />} />
+              </Route>
+              <Route path={DASHBOARD} element={<PrivateRoute />}>
+                <Route index element={<Dashboard />} />
+                <Route path={PROFILE} element={<Profile />} />
+                <Route path={LOGOUT} element={<Logout />} />
+              </Route>
+            </Routes>
             <Footer />
           </BrowserRouter>
       </AuthContextProvider>
