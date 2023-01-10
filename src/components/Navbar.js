@@ -1,14 +1,25 @@
 import {Link} from "react-router-dom";
 import {HOME, LOGIN, LOGOUT, REGISTER} from "../config/router/paths";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAuthContext} from "../contexts/authContext";
+import {useThemeContext} from "../contexts/themeContext";
 
 export function Navbar(){
   const {isAuthenticated} = useAuthContext()
+
   //desplegar menú móvil
   const [menuDesplegado, setMenuDesplegado] = useState(false)
   const desplegar = () =>{
     setMenuDesplegado(!menuDesplegado);
+  }
+  //theme light/dark
+  const {setTheme, changeTheme} = useThemeContext()
+
+  useEffect(()=>{
+    setTheme();
+  },[])
+  const handleChangeTheme = ()=>{
+    changeTheme();
   }
 
   return (
@@ -21,7 +32,7 @@ export function Navbar(){
         <button className='button-burguer' onClick={desplegar}><i className="fa-solid fa-bars"></i></button>
         <nav className={((menuDesplegado)? 'nav activo' : 'nav')} id="nav">
           <ul className="list_navbar">
-            <li className="nav-bar-link"><button type="button" onClick="claro_oscuro()"><img
+            <li className="nav-bar-link"><button type="button" onClick={handleChangeTheme}><img
               src={require("../assets/images/day-and-night (1).png")} /></button></li>
             { (!isAuthenticated) ?
               <>

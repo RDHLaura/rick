@@ -12,12 +12,15 @@ import {Footer} from "./components/Footer";
 import React from "react";
 import {Dashboard} from "./components/views/Dashboard";
 import {Navbar} from "./components/Navbar";
+import {ThemeContextProvider} from "./contexts/themeContext";
 
 function App() {
+
   return (
     /*Rodeamos a toda la aplicacion con nuestro componente AuthContextProvider para que puedan acceder a la lógica qye contiene
       * Y anidamos las rutas públicas por un lado y las privadas por otro*/
     <>
+      <ThemeContextProvider>
       <AuthContextProvider>
           <BrowserRouter>
             <Navbar />
@@ -36,6 +39,7 @@ function App() {
             <Footer />
           </BrowserRouter>
       </AuthContextProvider>
+      </ThemeContextProvider>
 
     </>
   );
