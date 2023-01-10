@@ -4,6 +4,7 @@ import './assets/sass/main.sass'
 import App from './App';
 import './assets/js/scripts.js'
 import 'https://kit.fontawesome.com/26a47be34a.js'
+import {Footer} from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -11,6 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+
   </React.StrictMode>
 );
 

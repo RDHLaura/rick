@@ -28,7 +28,7 @@ const validateUserName = (data)=>{
   let error= emptyinput(data);
   const regexUserName = /^[a-zA-z]{1}(\w|-+|_+){4,16}$/gm;
   if(error === "" && !regexUserName.test(data)){
-    error = "Nombre de usuario no válido. Debe empezar por una letra y sólo puede contener números, letras y '-', '_'. (Ej: usuario_1, usuario-2) ";
+    error = "Nombre de usuario no válido. Debe tener entre 4 y 16 caracteres  empezar por una letra y sólo puede contener números, letras y '-', '_'. (Ej: usuario_1, usuario-2) ";
   }
   return (error==="")? null : error
 }

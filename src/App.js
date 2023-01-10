@@ -1,18 +1,21 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {LOGIN, REGISTER, PROFILE, HOME,LOGOUT} from "./config/router/paths";
-import {Login} from "./views/Login";
-import {Profile} from "./views/Profile";
-import {Logout} from "./views/Logout";
-import {Home} from "./views/Home";
+import {Login} from "./components/views/Login";
+import {Profile} from "./components/views/Profile";
+import {Logout} from "./components/views/Logout";
+import {Home} from "./components/views/Home";
 import {AuthContextProvider} from "./contexts/authContext";
 import {PublicRoute} from "./components/router/PublicRoute";
 import {PrivateRoute} from "./components/router/PrivateRoute";
-import {Register} from "./views/Register";
+import {Register} from "./components/views/Register";
+import {Footer} from "./components/Footer";
+import React from "react";
 
 function App() {
   return (
-      /*Rodeamos a toda la aplicacion con nuestro componente AuthContextProvider para que puedan acceder a la lógica qye contiene
+    /*Rodeamos a toda la aplicacion con nuestro componente AuthContextProvider para que puedan acceder a la lógica qye contiene
       * Y anidamos las rutas públicas por un lado y las privadas por otro*/
+    <>
       <AuthContextProvider>
           <BrowserRouter>
               <Routes>
@@ -27,9 +30,11 @@ function App() {
                   </Route>
 
               </Routes>
+            <Footer />
           </BrowserRouter>
       </AuthContextProvider>
 
+    </>
   );
 }
 

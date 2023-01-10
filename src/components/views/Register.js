@@ -1,13 +1,13 @@
-import {useAuthContext} from "../contexts/authContext";
+import {useAuthContext} from "../../contexts/authContext";
 import {useEffect, useRef, useState} from "react";
-import InputForm from "../components/InputForm";
+import InputForm from "../InputForm";
 import {
   validateBirthday,
   validateEmail,
   validatePassword, validatePasswordCheck,
   validatePhone,
   validateUserName
-} from "../functions/validateForms";
+} from "../../functions/validateForms";
 
 export function Register () {
   const {login} = useAuthContext();
@@ -21,11 +21,8 @@ export function Register () {
     password_check: null
   }
   const [errors, setErrors] = useState(initialValuesErrors);
-  useEffect(()=>{
-    console.log(errors);
-  },[errors])
+
   const onValidate = (values) => {
-    console.log("entra onvalidate");
     let errorsForm = {};
     errorsForm.userName = validateUserName(values.userName);
     errorsForm.birthday = validateBirthday(values.birthday);
@@ -35,7 +32,7 @@ export function Register () {
     errorsForm.password_check = validatePasswordCheck(values.password, values.password_check);
     setErrors(errorsForm);
     //comprueba que no haya errores y almacena el nuevo usuario en localstorage
-    if(Object.values(errorsForm).every(element => element===null)){
+    if(Object.values(errorsForm).every(element => element === null)){
       storedata(values);
     }
   }
@@ -92,7 +89,6 @@ export function Register () {
           placeholder={"Repetir contraseña"}
           error={errors.password_check}
         />
-
         <button type='submit' className="form-button" >Entrar</button>
       </form>
     </main>
