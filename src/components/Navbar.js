@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {HOME, LOGIN, LOGOUT, REGISTER} from "../config/router/paths";
+import {FAVORITES, HOME, LOGIN, LOGOUT, PROFILE, REGISTER} from "../config/router/paths";
 import {useEffect, useState} from "react";
 import {useAuthContext} from "../contexts/authContext";
 import {useThemeContext} from "../contexts/themeContext";
@@ -14,7 +14,6 @@ export function Navbar(){
   }
   //theme light/dark
   const {setTheme, changeTheme} = useThemeContext()
-
   useEffect(()=>{
     setTheme();
   },[])
@@ -41,9 +40,9 @@ export function Navbar(){
               </>
               :
               <>
-                <li className="nav-bar-link"><Link to="./favoritos.html">Favoritos</Link></li>
+                <li className="nav-bar-link"><Link to={FAVORITES}>Favoritos</Link></li>
                 <li className="nav-bar-link"><Link to={LOGOUT}>Cerrar Sesión</Link></li>
-                <li className="nav-bar-link"><Link to="./perfil.html"><img className="perfil-img nav-img"
+                <li className="nav-bar-link"><Link to={PROFILE}><img className="perfil-img nav-img"
                                                                            src= {require("../assets/images/foto_03evento.png")}
                                                                            alt="Foto de perfil de usuario" /></Link></li>
               </>

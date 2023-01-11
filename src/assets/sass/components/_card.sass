@@ -1,4 +1,4 @@
-.event //clase principal de la carta evento afecta a todo el article
+.character //clase principal de la carta evento afecta a todo el article
     color: var(--color_letras)
     font-size: 1rem  
     font-weight: 500
@@ -20,7 +20,7 @@
             bottom: 0
             content: ' '
             width: 100%
-    .event-content //         
+    .character-content //
         .image_div
             position: relative 
             display: block 
@@ -50,19 +50,28 @@
                     font-size: 1.4rem
                     transition: all 0.3s linear
 
+
         .information-box
             display: flex
             flex-direction: row
             justify-content: space-around
             height: 50%  
             width: 100%
-            text-align: center            
+            text-align: center
             padding-bottom: 1rem
             word-break: break-all //hace que el texto que no quepa en el contenedor pase a la siguiente línea
             border-style: none
-            p
-                margin: 0   
-        .concert-name
+            .information-p
+                margin: 0
+                padding: 0
+                text-align: left
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                p
+                  margin: 0
+                  padding: 0
+        .character-name
             color: var(--color_titulo)
             font-weight: bolder
             font-size: 1.3rem            

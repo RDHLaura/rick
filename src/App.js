@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {LOGIN, REGISTER, PROFILE, HOME, LOGOUT, DASHBOARD} from "./config/router/paths";
+import {LOGIN, REGISTER, PROFILE, HOME, LOGOUT, DASHBOARD, FAVORITES, CHARACTER} from "./config/router/paths";
 import {Login} from "./components/views/Login";
 import {Profile} from "./components/views/Profile";
 import {Logout} from "./components/views/Logout";
@@ -13,6 +13,8 @@ import React from "react";
 import {Dashboard} from "./components/views/Dashboard";
 import {Navbar} from "./components/Navbar";
 import {ThemeContextProvider} from "./contexts/themeContext";
+import Favorites from "./components/views/Favorites";
+import {CharacterDetail} from "./components/views/CharacterDetail";
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
               <Route path={DASHBOARD} element={<PrivateRoute />}>
                 <Route index element={<Dashboard />} />
                 <Route path={PROFILE} element={<Profile />} />
+                <Route path={FAVORITES} element={<Favorites />} />
+                <Route path={CHARACTER} element={<CharacterDetail />} />
                 <Route path={LOGOUT} element={<Logout />} />
               </Route>
             </Routes>

@@ -6,57 +6,34 @@
     color: var(--color_letras)
     height: auto
     .search_div //posiciono en fila para agrupar el input con la lupa que hará la función de botón de búsqueda
-        margin-top: 2vw 
-        margin-bottom: 1vw      
+        margin-top: 2vw
+        margin-bottom: 1vw
         display: flex
-        flex-direction: row    
-        justify-content: space-between  
+        flex-direction: row
+        justify-content: space-between
         border-block-end: 1px solid var(--color_letras)
-        gap: 5vh 
+        gap: 5vh
         transition: all 0.3s linear
         &:focus-within //selecciona al padre cuando el hijo esta seleccionado
             border: 2px solid var(--color_letras)
             transition: all 0.3s linear
-            border-radius: 4px            
-            padding: 0.5rem           
-        .fa-magnifying-glass //da estilo a la lupa de la barra de búsqueda
-            align-self: center
-            font-size: 1.5rem
-            margin-right: 10px
-            transition: all 0.3s linear
-            &:hover
-                font-size: 1.55rem
-                transition: all 0.3s linear
-    
+            border-radius: 4px
+            padding: 0.5rem
             
         .search_input //da estilo al input de la barra de búsqueda
-            width: 70vw  
-            padding-left: 10px  
-            padding-bottom: 10px  
-            font-size: 1.5rem   
+            width: 70vw
+            padding-left: 10px
+            padding-bottom: 10px
+            font-size: 1.5rem
             font-weight: lighter
             &::placeholder
                 color: var(--color_letras)
 
-    .calendar //establece el estilo del input date
-        color: basic.$luminoso_principal
-        font-size: 1rem
-        flex-direction: row-reverse
-        background-color: rgba(32, 36, 51, 0.5)
-        width: 11rem
-        padding: 0.2rem
-        border-radius: 10
 
-        &::-webkit-calendar-picker-indicator //cambia el icono del input date
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>')
-            width: 3rem
-            font-size: 1.5rem
-            transition: all 0.3s linear
-            opacity: 1
-            &:hover
-                font-size: 1.65rem
-                transition: all 0.3s linear
-    
+    .container_selects
+        display: flex
+        flex-direction: row
+        gap: 5rem
 
-
-
+    .select-items
+        background-color: var(--background_principal)
