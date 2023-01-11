@@ -18,11 +18,9 @@ export  function Dashboard() {
   const handlePreviusPage = () =>{ setPage(--page) }
 
   //Búsqueda
-  //TODO añadir opciones de búsqueda al formulario
   let [busqueda, setBusqueda] = useState({
-    text: "",
     optionFilter: "name",
-    name: "name",
+    name: "",
     type: "",
     species: "",
     optionStatus: "",
@@ -34,7 +32,6 @@ export  function Dashboard() {
     setBusqueda({
       ...busqueda,
       [event.target.name]: value});
-
     setPage(1) //se establece la pag a 1 para que muestre desde la pimera pag de los resultados de la búsqueda
   }
 

@@ -13,7 +13,7 @@ const SearchBar = function(props){
           <input
             className='search_input'
             name={props.busqueda.optionFilter}
-            placeholder="Búsqueda por nombre"
+            placeholder="Búsqueda... "
             onChange={props.handleSearch}
           />
 

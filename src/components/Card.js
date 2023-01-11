@@ -24,18 +24,22 @@ export function Card (props) {
     setIsFav(!isFav);
     (!isFav)? addFav(props.id) : deleteFav(props.id);
   }
-
+  const [isShow, setIsShow] = useState(false);
+  const handleIsShow = () => {
+    setIsShow(!isShow);
+  }
   return(
-    <article key={props.id} className='character'>
+    <article key={props.id} className='character' onMouseEnter={handleIsShow} onMouseLeave={handleIsShow}>
       <div className="character-content">
         <div className="image_div">
           <img className="image" src={props.image} alt='Foto del personaje'/>
           <a id={props.id} className={(isFav)? "fa-solid fa-heart fa-heart-active" : "fa-solid fa-heart" } onClick={ favActive } ></a>
+          <h2 className="character-name">{props.name}</h2>
         </div>
         {/*TODO organizar la información y meter el evento hover en la tarjeta*/}
-        <fieldset className="information-box">
-          <legend className="character-name">{props.name}</legend>
-          <div className="information">
+        <fieldset className={isShow ? "information-box" : "information-box information-box--hidden"}>
+
+          <div>
             <div className="information-p">
               <p>Status: </p>
               <p>{props.status}</p>
@@ -63,7 +67,7 @@ export function Card (props) {
 
         </fieldset>
       </div>
-      <Link to={`/dashboard/character/${props.id}`} className="link-card"></Link>
+    <Link to={`/dashboard/character/${props.id}`} className="link-card"></Link>
     </article>
   )
 }
