@@ -1,0 +1,43 @@
+.container-character
+    display: flex
+    display-direction: row
+    align-content: space-between
+    height: 80vh
+    width: 100%
+
+    .container-img
+        width: 50%
+        height: 90%
+        padding: 2rem
+        .img-character
+            height: 100%
+            border-radius: 15px
+            padding: 1px
+            border:  3px solid var(--color_letra_boton_hover)
+    .container-details
+        padding: 2rem
+        width: 50%
+        height: 90%
+        .container-info
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: center
+        .fieldset-info
+            width: 100%
+            align-content: space-between
+            display: flex
+            flex-direction: row
+            background-color: rgba(32, 36, 51, 0.5)
+            padding: 0 2rem
+            border-bottom:  1px solid var(--color_titulo)
+
+            border-radius: 15px
+            .title-detail
+                width: 40%
+                color: var(--color_titulo)
+            .info
+                padding-left: 1rem
+                width: 60%
+                word-break: break-all
+                text-align: justify

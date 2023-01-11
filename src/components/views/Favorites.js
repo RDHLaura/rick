@@ -18,7 +18,7 @@ const Favoritos = function () {
   }, [ listFav])
 
   return (
-    <main class="mainFrame">
+    <main className="mainFrame">
       <header className="header">
         <h1 className="title">Rick and Morty</h1>
       </header>
@@ -32,6 +32,11 @@ const Favoritos = function () {
                   key={personaje.id}
                   id={personaje.id}
                   name={personaje.name}
+                  status={personaje.status}
+                  species={personaje.species}
+                  gender={personaje.gender}
+                  location={personaje.location}
+                  type={personaje.type}
                   image={personaje.image}
                   setListFavs={handleSetFavs}
                 />
