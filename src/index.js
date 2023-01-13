@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/sass/main.sass'
 import App from './App';
-import 'https://kit.fontawesome.com/26a47be34a.js'
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

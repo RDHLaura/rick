@@ -1,7 +1,7 @@
 {
   "name": "rick",
   "homepage": "https://RDHLaura.github.io/rick_and_morty/",
-  "version",: "0.1.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.0",
