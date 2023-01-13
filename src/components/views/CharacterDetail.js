@@ -11,6 +11,7 @@ export function CharacterDetail (){
   useEffect(()=>{
     detallepersonaje(params.id, setPersonaje)
   },[])
+
   return (
     <>
       {personaje!= null ? (

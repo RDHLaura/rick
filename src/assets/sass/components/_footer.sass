@@ -1,5 +1,6 @@
 @use "../utilities/_basic"
 footer
+    padding-top: 2vh
     background-color: basic.$oscuro_principal        
     color: basic.$acento_luminoso
     //posiciono el footer al final de la pag en posición absoluta de manera que esté siempre al final de la 
@@ -7,6 +8,7 @@ footer
     //para ello le doy al main un margin bottom del tamaño del footer y al footer una posición absoluta situandolo al final
     position: absolute
     width: 100%
+    height: 25vh
     @media(max-width: 750px) 
         height: 50vh
     bottom: 0

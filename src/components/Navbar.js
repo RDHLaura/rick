@@ -21,18 +21,31 @@ export function Navbar(){
     changeTheme();
   }
 
+  //establezco un temporizador para desloguear después de una hora
+  const {logout} = useAuthContext()
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      logout()
+    }, 3600000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
+
+
   return (
     <>
       <header className="navbar">
         <Link className="logo" to={HOME}>
-          {/*<img className="logo-img" src={require("../assets/images/logo.svg")} alt="Logo"/>*/}
+
           <p className="logo-name">Rick and Morty</p>
+
         </Link>
         <button className='button-burguer' onClick={desplegar}><i className="fa-solid fa-bars"></i></button>
         <nav className={((menuDesplegado)? 'nav activo' : 'nav')} id="nav">
           <ul className="list_navbar">
             <li className="nav-bar-link"><button type="button" onClick={handleChangeTheme}><img
-              src={require("../assets/images/day-and-night (1).png")} /></button></li>
+              src={require("../assets/images/day-and-night (1).png")}  /></button></li>
             { (!isAuthenticated) ?
               <>
                 <li className="nav-bar-link"><Link to={LOGIN} >Iniciar Sesión</Link></li>

@@ -5,6 +5,7 @@ import {listarPersonajes} from "../../functions/requestsAPI";
 import {Card} from "../Card";
 import {Paginate} from "../Paginate";
 import SearchBar from "../SearchBar";
+import {useAuthContext} from "../../contexts/authContext";
 
 
 export  function Dashboard() {
@@ -45,11 +46,41 @@ export  function Dashboard() {
     listarPersonajes(setPersonajes, page, busqueda, setInfo);
   }, [busqueda, page]) //cuando cambien se vuelve a ejecutar useEffect
 
+  const {logout} = useAuthContext()
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      logout()
+    }, 3600000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  //crea un efecto en el título de la página
+  const imageLogo = <img style={{width: "2.5rem"}} src={require('../../assets/images/rick_icon.png')} alt=" "/>
+  const initialContentTitle = "Rick and Morty";
+  const [contentTitle, setContentTitle] = useState(<>Rick and Morty</>);
+  const [counter, setCounter] =useState(0)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const content =
+        <>
+          {initialContentTitle.substring(0,counter)}
+          {imageLogo}
+          {initialContentTitle.substring(counter+1, initialContentTitle.length)}
+        </>;
+      setContentTitle(content);
+      (counter <= initialContentTitle.length)?
+        setCounter(counter + 1) :
+        setCounter(0)
+    }, 1000);
+    return () => clearInterval(interval);
+
+  }, [contentTitle]);
 
   return (
     <main className="mainFrame">
       <header className="header">
-        <h1 className="title">Rick and Morty</h1>
+        <h1 className="title" id="title_dashboard" >{contentTitle}</h1>
       </header>
       <SearchBar
         busqueda = {busqueda}
@@ -84,9 +115,11 @@ export  function Dashboard() {
                   image={personaje.image}
                   setListFavs={handleSetFavs}
                 />
+
               )
             )) : ('Cargando...')
         }
+
       </div>
     </main>
   );
