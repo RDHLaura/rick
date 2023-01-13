@@ -22,10 +22,11 @@ export function Login () {
     errorsForm.password = validatePassword(values.password);
     //recupera los datos del usuario del localstorage y compruebo si coinciden con los inputs
     const dataUser = JSON.parse(localStorage.getItem('userData'));
-    errorsForm.login = (dataUser === null) ? null : //evita error al intentar acceder a dataUSer.email
+    console.log(dataUser === null)
+    errorsForm.login = (dataUser === null) ? "No coincide usuario o contraseña registrado." : //evita error al intentar acceder a dataUSer.email
                         (dataUser.email === values.email && dataUser.password === values.password)  ?
                           null :
-                          "No coincide usuario o contraseña registrado.";
+                          "No coincide usuario o contraseña registrado." ;
     setErrors (errorsForm);
     return (Object.values(errorsForm).every(e => e ===null));
   }
