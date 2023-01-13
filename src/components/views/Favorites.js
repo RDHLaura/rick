@@ -14,6 +14,7 @@ const Favoritos = function () {
   const handleSetFavs = (e)=> {setListFavs(e)}
 
   useEffect(() => {
+    console.log(personajes)
     listarFavoritos(setPersonajes, listFav);
 
   }, [ listFav])
