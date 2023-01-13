@@ -5,7 +5,6 @@ import axios from 'axios'; //biblioteca que permite realizar solicitudes a un en
 //Se hace una petición, se reciben los datos y se cargan los datos en un estado del componente,
 //para esto hay que haber creado un estado en el component
 const listarPersonajes = async ( setPersonajes, pag, busqueda, setInfo) => {
-  console.log(busqueda.name)
   //con el await le indicamos a la función asíncrona que espere la respuesta de la api
   const peticion = await axios.get(`https://rickandmortyapi.com/api/character?
 page=${pag}
