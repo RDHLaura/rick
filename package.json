@@ -1,7 +1,6 @@
 {
-
-  "homepage": "https://rdhlaura.github.io/rick",
   "name": "rick",
+  "homepage": "https://rdhlaura.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
