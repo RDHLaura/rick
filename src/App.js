@@ -24,7 +24,7 @@ function App() {
     <>
       <ThemeContextProvider>
       <AuthContextProvider>
-          <BrowserRouter>
+          <BrowserRouter basename='/rick'>
             <Navbar />
             <Routes>
               <Route path="/" element={<PublicRoute />}>

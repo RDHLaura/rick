@@ -48,9 +48,6 @@ export function Card (props) {
     setIsShowInfo(!isShowInfo);
   }
 
-
-
-
   return(
     <article key={props.id} className='character' onMouseEnter={handleIsShow} onMouseLeave={handleIsShow} >
       <div className="character-content">
