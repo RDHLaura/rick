@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/rick/static/css/main.5812be28.css",
-    "main.js": "/rick/static/js/main.1df10467.js",
-    "static/media/rickAndMorty_home.jpg": "/rick/static/media/rickAndMorty_home.668ed6a6a23e6fe7742f.jpg",
-    "static/media/rick_icon.png": "/rick/static/media/rick_icon.fb915d6f039ce51174ff.png",
-    "static/media/foto_03evento.png": "/rick/static/media/foto_03evento.2ecbf22a507314af9677.png",
-    "static/media/instagram.svg": "/rick/static/media/instagram.dd16687baa4ade45326cf4400504de71.svg",
-    "static/media/facebook.svg": "/rick/static/media/facebook.b174dc9a0c718aecb365c41e482c7773.svg",
-    "static/media/youtube.svg": "/rick/static/media/youtube.dbc7d236164f1986e045a4cb91449500.svg",
-    "index.html": "/rick/index.html",
-    "static/media/twitter.svg": "/rick/static/media/twitter.6bf76f88ad35fa49cc449e01dad4b548.svg",
-    "main.5812be28.css.map": "/rick/static/css/main.5812be28.css.map",
-    "main.1df10467.js.map": "/rick/static/js/main.1df10467.js.map"
+    "main.css": "/static/css/main.5812be28.css",
+    "main.js": "/static/js/main.462bb772.js",
+    "static/media/rickAndMorty_home.jpg": "/static/media/rickAndMorty_home.668ed6a6a23e6fe7742f.jpg",
+    "static/media/rick_icon.png": "/static/media/rick_icon.fb915d6f039ce51174ff.png",
+    "static/media/foto_03evento.png": "/static/media/foto_03evento.2ecbf22a507314af9677.png",
+    "static/media/instagram.svg": "/static/media/instagram.dd16687baa4ade45326cf4400504de71.svg",
+    "static/media/facebook.svg": "/static/media/facebook.b174dc9a0c718aecb365c41e482c7773.svg",
+    "static/media/youtube.svg": "/static/media/youtube.dbc7d236164f1986e045a4cb91449500.svg",
+    "index.html": "/index.html",
+    "static/media/twitter.svg": "/static/media/twitter.6bf76f88ad35fa49cc449e01dad4b548.svg",
+    "main.5812be28.css.map": "/static/css/main.5812be28.css.map",
+    "main.462bb772.js.map": "/static/js/main.462bb772.js.map"
   },
   "entrypoints": [
     "static/css/main.5812be28.css",
-    "static/js/main.1df10467.js"
+    "static/js/main.462bb772.js"
   ]
 }
