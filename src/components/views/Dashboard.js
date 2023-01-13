@@ -6,6 +6,7 @@ import {Card} from "../Card";
 import {Paginate} from "../Paginate";
 import SearchBar from "../SearchBar";
 import {useAuthContext} from "../../contexts/authContext";
+import {Title} from "../Title";
 
 
 export  function Dashboard() {
@@ -55,32 +56,12 @@ export  function Dashboard() {
   }, []);
 
 
-  //crea un efecto en el título de la página
-  const imageLogo = <img style={{width: "2.5rem"}} src={require('../../assets/images/rick_icon.png')} alt=" "/>
-  const initialContentTitle = "Rick and Morty";
-  const [contentTitle, setContentTitle] = useState(<>Rick and Morty</>);
-  const [counter, setCounter] =useState(0)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const content =
-        <>
-          {initialContentTitle.substring(0,counter)}
-          {imageLogo}
-          {initialContentTitle.substring(counter+1, initialContentTitle.length)}
-        </>;
-      setContentTitle(content);
-      (counter <= initialContentTitle.length)?
-        setCounter(counter + 1) :
-        setCounter(0)
-    }, 1000);
-    return () => clearInterval(interval);
 
-  }, [contentTitle]);
 
   return (
     <main className="mainFrame">
       <header className="header">
-        <h1 className="title" id="title_dashboard" >{contentTitle}</h1>
+        <Title />
       </header>
       <SearchBar
         busqueda = {busqueda}

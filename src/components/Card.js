@@ -52,8 +52,6 @@ export function Card (props) {
 
 
   return(
-
-
     <article key={props.id} className='character' onMouseEnter={handleIsShow} onMouseLeave={handleIsShow} >
       <div className="character-content">
         <div className="image_div">
@@ -61,10 +59,9 @@ export function Card (props) {
           <a id={props.id} className={(isFav)? "fa-solid fa-heart fa-heart-active" : "fa-solid fa-heart" } onClick={ favActive } ></a>
           <h2 className="character-name">{props.name}</h2>
         </div>
-        {/*TODO organizar la información y meter el evento hover en la tarjeta*/}
+
         <fieldset className={isShowInfo ? "information-box" : "information-box information-box--hidden"}>
           <Link to={`/dashboard/character/${props.id}`} className="link-card">
-
             <div className="information-p">
               <p>Status: </p>
               <p>{props.status}</p>
@@ -89,9 +86,7 @@ export function Card (props) {
             </div>
           </Link>
         </fieldset>
-
       </div>
-
     </article>
 
   )

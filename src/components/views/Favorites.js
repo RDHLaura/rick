@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {listarFavoritos} from "../../functions/requestsAPI";
 import {Card} from "../Card";
+import {Title} from "../Title";
 
 
 
@@ -20,7 +21,7 @@ const Favoritos = function () {
   return (
     <main className="mainFrame">
       <header className="header">
-        <h1 className="title">Rick and Morty</h1>
+       <Title />
       </header>
       <div className="grid-content">
         { //listado de cartas
