@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {HOME} from "../config/router/paths";
+import {CONTACT, HOME} from "../config/router/paths";
 import instagram_logo from "../assets/images/instagram.svg";
 import twitter_logo from "../assets/images/twitter.svg";
 import facebook_logo from "../assets/images/facebook.svg";
@@ -24,7 +24,7 @@ export function Footer(){
           </ul>
         </fieldset>
         <p className="condiciones_uso">Al continuar en nuestra página aceptas nuestras <a className="link link-footer" href="">Condiciones de uso</a></p>
-        <a className="link link-footer" href="./contacto.html">Contacto</a>
+        <Link className="link link-footer" to={CONTACT}>Contacto</Link>
       </nav>
       <p className="copy-right footer-secundary"> 2022. Events. Todos los derechos reservados</p>
     </footer>

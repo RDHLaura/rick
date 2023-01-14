@@ -10,8 +10,9 @@ $oscuro_principal: rgb(32, 36, 51)
 $background_principal_dark: #0a0a0a
 $background_card_info: rgba(32, 36, 51, 0.7)
 $background_card:  rgb(8, 8, 14, 0.97)
-$background_principal_light: radial-gradient(ellipse at top, $oscuro_secundario, transparent),radial-gradient(ellipse at bottom, $principal, transparent)
+$background_principal_light: radial-gradient(ellipse at top, $oscuro_secundario, transparent),radial-gradient(ellipse at bottom, #118944, transparent)
 $background_card_light:rgba(171, 171, 199, 0.5)
+
 //tema principal
 .theme
     --color_letras: #{$acento_luminoso} 
@@ -23,6 +24,7 @@ $background_card_light:rgba(171, 171, 199, 0.5)
     --color_letra_boton: #{$oscuro_principal}
     --color_background_boton_hover: #{$oscuro_principal}
     --color_letra_boton_hover: #{$principal}
+
     //tema claro
     &--light
         --color_letras: #{$oscuro_principal}

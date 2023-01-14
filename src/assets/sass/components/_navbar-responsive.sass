@@ -1,7 +1,7 @@
 @use "../utilities/_basic"
 .navbar
     width: 100%
-    height: 9vh 
+    height: 11vh
     background-color: basic.$oscuro_principal
     display: flex
     flex-flow: row wrap //permite que los elementos aparezcan en varias líneas, lo que nos va a servir para mostrar el menú desplegable
@@ -46,10 +46,11 @@
     .nav-img
         margin-top: 6px
         width: 4rem
+        border-radius: 50%
         @media ( max-width: 700px )
             width: 5rem 
         &:hover //crea un efecto de sombreado luminoso en la imagen cuando posicionamos el ratón encima
-            box-shadow: 0 2px 4px 0 basic.$luminoso_principal
+            box-shadow: 0 2px 4px 0 basic.$principal
             transition: all 0.5s linear
     .nav-bar-link
         margin: 0em 1em

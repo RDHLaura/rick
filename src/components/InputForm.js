@@ -6,10 +6,11 @@ export default function InputForm(props) {
             <input
                 name={props.name}
                 type={props.type}
-                className="form-input"
+                className= {(props.className!== undefined )?`form-input ${props.className}` : "form-input"}
                 placeholder={props.placeholder}
                 defaultValue={props.value}
                 onBlur={props.onBlur}
+
             />
             {props.error && <p className="text-error">{props.error}</p>}
         </div>

@@ -1,5 +1,5 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {LOGIN, REGISTER, PROFILE, HOME, LOGOUT, DASHBOARD, FAVORITES, CHARACTER} from "./config/router/paths";
+import {Route, Routes} from "react-router-dom";
+import {LOGIN, REGISTER, PROFILE, HOME, LOGOUT, DASHBOARD, FAVORITES, CHARACTER, CONTACT} from "./config/router/paths";
 import {Login} from "./components/views/Login";
 import {Profile} from "./components/views/Profile";
 import {Logout} from "./components/views/Logout";
@@ -15,6 +15,7 @@ import {Navbar} from "./components/Navbar";
 import {ThemeContextProvider} from "./contexts/themeContext";
 import Favorites from "./components/views/Favorites";
 import {CharacterDetail} from "./components/views/CharacterDetail";
+import {Contact} from "./components/views/Contact";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 
             <Navbar />
             <Routes>
+              <Route path={CONTACT} element={<Contact/>} />
               <Route path="/" element={<PublicRoute />}>
                 <Route index element={<Home />} />
                 <Route path={LOGIN} element={<Login />} />
@@ -38,6 +40,7 @@ function App() {
                 <Route path={FAVORITES} element={<Favorites />} />
                 <Route path={CHARACTER} element={<CharacterDetail />} />
                 <Route path={LOGOUT} element={<Logout />} />
+
               </Route>
             </Routes>
             <Footer />

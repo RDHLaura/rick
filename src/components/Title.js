@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 
-
 export function Title (props) {
   //crea un efecto en el título de la página
   const imageLogo = <img style={{width: "5rem"}} src={require('../assets/images/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.png')} alt=" "/>

@@ -6,4 +6,5 @@ export const CHARACTER = '/dashboard/character/:id'
 export const LOGOUT = '/dashboard/logout';
 export const LOGIN = '/login';
 export const REGISTER = '/register';
+export const CONTACT = '/contact';
 export const HOME = '/';

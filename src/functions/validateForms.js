@@ -53,6 +53,15 @@ const validatePhone = (data)=>{
   return (error==="")? null : error;
 }
 
+const validateText = (data)=>{
+  let error = emptyinput(data);
+  const regexText = /([A-Za-z0-9]|\.|,|\?|¿|!|¡|\s){4,150}$/gm
+  if(error === "" && !regexText.test(data)){
+    error = "El texto debe tener entre 4 y 150 caracteres y sólo están permitidos los números, letras, y los siguientes símbolos [.,¿?¡!].";
+  }
+  return (error==="")? null : error;
+}
+
 const emptyinput = (data)=>{
   return (data === "") ? "Campo requerido": ""
 }
@@ -63,5 +72,6 @@ export{
   validatePasswordCheck,
   validateUserName,
   validateBirthday,
-  validatePhone
+  validatePhone,
+  validateText
 }

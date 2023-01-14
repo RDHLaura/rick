@@ -13,11 +13,11 @@
         display: flex
         flex-direction: row
         justify-content: space-between
-        border-block-end: 1px solid var(--color_letras)
+        border-block-end: 1px solid var(--color_titulo)
         gap: 5vh
         transition: all 0.3s linear
         &:focus-within //selecciona al padre cuando el hijo esta seleccionado
-            border: 2px solid var(--color_letras)
+            border: 2px solid var(--color_titulo)
             transition: all 0.3s linear
             border-radius: 4px
             padding: 0.5rem
@@ -40,8 +40,9 @@
         font-size: 1.2rem
 
     .select-items
+        margin-bottom: 4px
+        padding: 3px
         background-color: var(--background_card)
         font-size: 1.2rem
         border-radius: 15px
-
-        border-bottom: 1px solid var(--color_letras)
+        border-bottom: 2px solid var(--color_titulo)

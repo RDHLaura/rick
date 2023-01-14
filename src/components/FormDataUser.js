@@ -8,10 +8,11 @@ import {
   validatePhone,
   validateUserName
 } from "../functions/validateForms";
+import {useThemeContext} from "../contexts/themeContext";
 
 export function FormDataUser (props) {
   const {login} = useAuthContext();
-  const formRef = useRef();
+  const {lightTheme} =useThemeContext()
 
   const initialValuesErrors = {
     userName: null,
@@ -83,6 +84,7 @@ export function FormDataUser (props) {
                 placeholder={props.dataUser.birthday}
                 error={errors.birthday}
                 onBlur ={handleChangeValue}
+                className={(lightTheme==="desactive")?`calendar calendar_d`:"calendar"}
               />
             </fieldset>
             <fieldset className="fieldset">
