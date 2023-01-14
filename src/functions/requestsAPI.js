@@ -26,16 +26,23 @@ page=${pag}
   //inputSearch.gender : female, male, genderless or unknown
 }
 const listarFavoritos = async ( setPersonajes, favorites) => {
-  const listFavorites = favorites
-    .trim()
-    .split(' ')
-    .join(',')
-  const peticion = await axios.get(`https://rickandmortyapi.com/api/character/${listFavorites}`);
-  const results = peticion.data;
-  setPersonajes(results);
+  console.log("favorites: "+ favorites)
+  if(favorites===""){
+    setPersonajes(null)
+  }else{
+    const listFavorites = favorites
+      .trim()
+      .split(' ')
+      .join(',')
+    const peticion = await axios.get(`https://rickandmortyapi.com/api/character/${listFavorites}`);
+    const results = peticion.data;
+    setPersonajes(results);
+  }
+
 }
 
 const detallepersonaje = async (id, state) =>{
+
   const peticion = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
   state(peticion.data)
 }

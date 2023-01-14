@@ -42,7 +42,7 @@ export function Login () {
 
   return (
       <main className="mainFrame">
-        <h1>Login</h1>
+        <h1 className="title">Login</h1>
         <p id="login" className="text-error">{errors.login}</p>
         <form onSubmit={handleSubmit} className="form form-sesion" ref={formRef} >
             <InputForm
@@ -58,7 +58,7 @@ export function Login () {
               error={errors.password}
             />
             {/* <input type="text" value={password} onChange={handleInputChange} /> */}
-            <button type="submit">Iniciar sesión</button>
+            <button className="form-button" type="submit">Iniciar sesión</button>
           </form>
         <Link className="link link-registro" to={REGISTER}>¿Aún no tienes cuenta?</Link>
       </main>

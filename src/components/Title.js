@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 
 export function Title (props) {
   //crea un efecto en el título de la página
-  const imageLogo = <img style={{width: "3.5rem"}} src={require('../assets/images/rick_icon.png')} alt=" "/>
+  const imageLogo = <img style={{width: "5rem"}} src={require('../assets/images/rick_icon.png')} alt=" "/>
   const initialContentTitle = "Rick and Morty";
   const [contentTitle, setContentTitle] = useState(<>Rick and Morty</>);
   const [counter, setCounter] =useState(0)

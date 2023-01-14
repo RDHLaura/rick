@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
  * @returns {JSX.Element} nodo card que contiene la información del personaje
  */
 export function Card (props) {
+
   const [isFav, setIsFav] = useState(props.Favs
     .split(' ')
     .some(element=> element === (props.id).toString())

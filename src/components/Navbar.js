@@ -30,9 +30,6 @@ export function Navbar(){
     return () => clearTimeout(timer);
   }, []);
 
-
-
-
   return (
     <>
       <header className="navbar">
@@ -44,7 +41,7 @@ export function Navbar(){
         <button className='button-burguer' onClick={desplegar}><i className="fa-solid fa-bars"></i></button>
         <nav className={((menuDesplegado)? 'nav activo' : 'nav')} id="nav">
           <ul className="list_navbar">
-            <li className="nav-bar-link"><button type="button" onClick={handleChangeTheme}><img
+            <li className="nav-bar-link"><button type="button" onClick={handleChangeTheme}><img className="img_theme"
               src={require("../assets/images/day-and-night (1).png")}  /></button></li>
             { (!isAuthenticated) ?
               <>
@@ -56,7 +53,7 @@ export function Navbar(){
                 <li className="nav-bar-link"><Link to={FAVORITES}>Favoritos</Link></li>
                 <li className="nav-bar-link"><Link to={LOGOUT}>Cerrar Sesión</Link></li>
                 <li className="nav-bar-link"><Link to={PROFILE}><img className="perfil-img nav-img"
-                                                                           src= {require("../assets/images/foto_03evento.png")}
+                                                                           src= {require("../assets/images/morty_navbar.jpg")}
                                                                            alt="Foto de perfil de usuario" /></Link></li>
               </>
             }
