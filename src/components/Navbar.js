@@ -53,7 +53,7 @@ export function Navbar(){
                 <li className="nav-bar-link"><Link to={FAVORITES}>Favoritos</Link></li>
                 <li className="nav-bar-link"><Link to={LOGOUT}>Cerrar Sesión</Link></li>
                 <li className="nav-bar-link"><Link to={PROFILE}><img className="perfil-img nav-img"
-                                                                           src= {require("../assets/images/morty_navbar.jpg")}
+                                                                           src= {require("../assets/images/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.png")}
                                                                            alt="Foto de perfil de usuario" /></Link></li>
               </>
             }

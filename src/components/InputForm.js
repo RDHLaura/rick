@@ -1,5 +1,6 @@
 import React from 'react'
 export default function InputForm(props) {
+
     return (
         <div className="container-error" >
             <input
@@ -7,6 +8,8 @@ export default function InputForm(props) {
                 type={props.type}
                 className="form-input"
                 placeholder={props.placeholder}
+                defaultValue={props.value}
+                onBlur={props.onBlur}
             />
             {props.error && <p className="text-error">{props.error}</p>}
         </div>
