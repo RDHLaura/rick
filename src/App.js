@@ -24,7 +24,7 @@ function App() {
     <>
       <ThemeContextProvider>
       <AuthContextProvider>
-          <BrowserRouter basename='/rick'>
+
             <Navbar />
             <Routes>
               <Route path="/" element={<PublicRoute />}>
@@ -41,7 +41,7 @@ function App() {
               </Route>
             </Routes>
             <Footer />
-          </BrowserRouter>
+
       </AuthContextProvider>
       </ThemeContextProvider>
 

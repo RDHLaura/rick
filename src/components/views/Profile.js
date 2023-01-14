@@ -39,6 +39,10 @@ export  function Profile() {
                   <legend>Teléfono</legend>
                   <input type="number" className="form-input" value={dataUser.phone} />
                 </fieldset>
+                <fieldset className="fieldset">
+                  <legend>Password</legend>
+                  <input type="password" className="form-input" value={dataUser.password} />
+                </fieldset>
               </section>
             </div>
             <button className="form-button" type="submit">Guardar</button>
