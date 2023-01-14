@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/rick/static/css/main.4fa59206.css",
-    "main.js": "/rick/static/js/main.e409644c.js",
+    "main.css": "/rick/static/css/main.17d4dee4.css",
+    "main.js": "/rick/static/js/main.6c9a71c9.js",
+    "static/media/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.png": "/rick/static/media/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.a218ca229093de6f08d2.png",
     "static/media/RM_foto_favs.png": "/rick/static/media/RM_foto_favs.050bff843cb3599c020b.png",
     "static/media/rick-and-morty-icon-png-images-29.png": "/rick/static/media/rick-and-morty-icon-png-images-29.6a9216ce41e3666448de.png",
-    "static/media/rick_icon.png": "/rick/static/media/rick_icon.fb915d6f039ce51174ff.png",
-    "static/media/morty_navbar.jpg": "/rick/static/media/morty_navbar.03ae33a7ad8fb76a1bc7.jpg",
     "static/media/instagram.svg": "/rick/static/media/instagram.dd16687baa4ade45326cf4400504de71.svg",
     "static/media/facebook.svg": "/rick/static/media/facebook.b174dc9a0c718aecb365c41e482c7773.svg",
     "static/media/youtube.svg": "/rick/static/media/youtube.dbc7d236164f1986e045a4cb91449500.svg",
     "index.html": "/rick/index.html",
     "static/media/twitter.svg": "/rick/static/media/twitter.6bf76f88ad35fa49cc449e01dad4b548.svg",
-    "main.4fa59206.css.map": "/rick/static/css/main.4fa59206.css.map",
-    "main.e409644c.js.map": "/rick/static/js/main.e409644c.js.map"
+    "main.17d4dee4.css.map": "/rick/static/css/main.17d4dee4.css.map",
+    "main.6c9a71c9.js.map": "/rick/static/js/main.6c9a71c9.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fa59206.css",
-    "static/js/main.e409644c.js"
+    "static/css/main.17d4dee4.css",
+    "static/js/main.6c9a71c9.js"
   ]
 }
