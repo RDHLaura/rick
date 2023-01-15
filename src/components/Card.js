@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-/**
- @module Card
- */
+
 
 /**
+ * 
+ *
  * @component
  * @param props se le pasa los datos del personaje y la lista de favoritos para poder gestionarla y que muestre si pertenece a la lista de favoritos
  * @returns {JSX.Element} nodo card que contiene la información del personaje
