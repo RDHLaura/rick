@@ -1,6 +1,13 @@
 import {useRef, useState} from "react";
 
+/**
+ * Rendeciza la barra de búsqueda
+ * @param props recibe los parámetros de la búsqueda y las funciones modificadoras que se pasarán en los manejadores de eventos
+ *
+ * @returns {JSX.Element} barra de búqueda
+ */
 const SearchBar = function(props){
+
   return (
     <div className='searchFrame'>
       <form className="searchFrame" >
@@ -16,7 +23,6 @@ const SearchBar = function(props){
             placeholder="Búsqueda... "
             onChange={props.handleSearch}
           />
-
         </div>
         <div className="container_selects">
           <p>Status:

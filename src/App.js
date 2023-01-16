@@ -17,6 +17,11 @@ import Favorites from "./components/views/Favorites";
 import {CharacterDetail} from "./components/views/CharacterDetail";
 import {Contact} from "./components/views/Contact";
 
+/**
+ * Contiene todas las rutas de los elementos que se renderizaran.
+ *
+ * @returns {JSX.Element} un elemento que renderiza un componente u otro según la ruta
+ */
 function App() {
 
   return (
@@ -25,7 +30,6 @@ function App() {
     <>
       <ThemeContextProvider>
       <AuthContextProvider>
-
             <Navbar />
             <Routes>
               <Route path={CONTACT} element={<Contact/>} />
@@ -40,11 +44,9 @@ function App() {
                 <Route path={FAVORITES} element={<Favorites />} />
                 <Route path={CHARACTER} element={<CharacterDetail />} />
                 <Route path={LOGOUT} element={<Logout />} />
-
               </Route>
             </Routes>
             <Footer />
-
       </AuthContextProvider>
       </ThemeContextProvider>
 

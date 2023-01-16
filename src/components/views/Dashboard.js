@@ -1,5 +1,3 @@
-import {Link} from "react-router-dom";
-import {LOGOUT, PROFILE} from "../../config/router/paths";
 import {useEffect, useState} from "react";
 import {listarPersonajes} from "../../functions/requestsAPI";
 import {Card} from "../Card";
@@ -8,7 +6,11 @@ import SearchBar from "../SearchBar";
 import {useAuthContext} from "../../contexts/authContext";
 import {Title} from "../Title";
 
-
+/**
+ * @component
+ * Página principal, renderiza y controla el listado de personajes, la búsqueda dinámica y la paginación
+ * @returns {JSX.Element} Página principal
+ */
 export  function Dashboard() {
   //Personajes
   const [personajes, setPersonajes] = useState(null);
@@ -19,7 +21,7 @@ export  function Dashboard() {
   const handleNextPage = () =>{ setPage(++page) }
   const handlePreviusPage = () =>{ setPage(--page) }
 
-  //Búsqueda
+  //Valores de los filtros de búsqueda, se inicializan en vacío salvo el nombre, que será la búsqueda por defecto del txto
   let [busqueda, setBusqueda] = useState({
     optionFilter: "name",
     name: "",
@@ -29,6 +31,7 @@ export  function Dashboard() {
     optionGender: ""
   });
 
+  /*Cuando el usuario hacec cambios en los filtros de búsqueda se llama a esta función que actualiza los valores inciales*/
   const handleSearch = (event) => {
     const value = event.target.value
     setBusqueda({
@@ -37,31 +40,21 @@ export  function Dashboard() {
     setPage(1) //se establece la pag a 1 para que muestre desde la pimera pag de los resultados de la búsqueda
   }
 
+  //Petición de personajes con búsqueda dinámica
+  useEffect(() => {
+    listarPersonajes(setPersonajes, page, busqueda, setInfo);
+  }, [busqueda, page]) //cuando cambien estos valores se vuelve a ejecutar useEffect
+
   //Favoritos
   const favs = localStorage.favorites || "";
   const [listFav, setListFavs] = useState(favs);
   const handleSetFavs = (e)=> {setListFavs(e)}
 
-  //Petición de personajes con búsqueda dinámica
-  useEffect(() => {
-    listarPersonajes(setPersonajes, page, busqueda, setInfo);
-  }, [busqueda, page]) //cuando cambien se vuelve a ejecutar useEffect
-
-  const {logout} = useAuthContext()
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      logout()
-    }, 3600000);
-    return () => clearTimeout(timer);
-  }, []);
-
-
-
 
   return (
     <main className="mainFrame">
       <header className="header">
-        <Title />
+        <Title contentTitle = "Rick and Morty"/>
       </header>
       <SearchBar
         busqueda = {busqueda}

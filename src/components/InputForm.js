@@ -1,4 +1,12 @@
 import React from 'react'
+
+/**
+ * Renderiza un componente input que contiene un div con el input y el mensaje de error en caso de que el dato introducido por el usuario
+ * sea inválido.
+ *
+ * @param props datos que queremos mostrar en el input
+ * @returns {JSX.Element} elemento con el input y el error asociado a él
+ */
 export default function InputForm(props) {
 
     return (
@@ -10,7 +18,6 @@ export default function InputForm(props) {
                 placeholder={props.placeholder}
                 defaultValue={props.value}
                 onBlur={props.onBlur}
-
             />
             {props.error && <p className="text-error">{props.error}</p>}
         </div>

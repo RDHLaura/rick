@@ -3,51 +3,35 @@ import { Link } from 'react-router-dom';
 
 
 /**
- * 
+ * Renderiza los datos de un personaje y
+ * controla la lista de favoritos para añadir o eliminar un id según la interacción del usuario.
  *
  * @component
  * @param props se le pasa los datos del personaje y la lista de favoritos para poder gestionarla y que muestre si pertenece a la lista de favoritos
  * @returns {JSX.Element} nodo card que contiene la información del personaje
  */
 export function Card (props) {
-
-  const [isFav, setIsFav] = useState(props.Favs
-    .split(' ')
-    .some(element=> element === (props.id).toString())
-  )
+  const [isFav, setIsFav] = useState(props.Favs.split(' ').some(element=> element === (props.id).toString()))
   const addFav = (id) => {
-    props.setListFavs(props.Favs+' '+id)
-    localStorage.favorites =  props.Favs+' '+id;
+    updateListFav(props.Favs+' '+id);
   }
-  /**
-   * Elimina un personaje de la lista de favoritos   *
-   * @param id identificador del personaje que queremos eliminar
-   * @inner
-   */
   const deleteFav = (id) => {
-    const newList = props.Favs
-      .split(' ')
-      .filter(element => element!== id.toString())
-    props.setListFavs(newList.join(' '))
-    localStorage.favorites = newList.join(' ')
+    const newList = props.Favs.split(' ').filter(element => element!== id.toString());
+    updateListFav(newList.join(' '));
   }
-  /**
-   * cuando se llama se encarga de añadir o elimiar al personaje de los favoritos
-   */
-  const favActive = () => {
+  const updateListFav = (newList) => { //actualiza la lista de favoritos
+    props.setListFavs(newList);
+    localStorage.favorites = newList;
+  }
+
+  const favActive = () => { //comprueba si el id ya estaba en la lista de favoritos y llama a add o delete fav según corresponda
     setIsFav(!isFav);
     (!isFav)? addFav(props.id) : deleteFav(props.id);
-
   }
 
-
-  /**
-   *
-   */
+  //Muestra u oculta la información del personaje cuando el ratón entra o deja el componente
   const [isShowInfo, setIsShowInfo] = useState(false);
-  const handleIsShow = () => {
-    setIsShowInfo(!isShowInfo);
-  }
+  const handleIsShow = () => {setIsShowInfo(!isShowInfo);}
 
   return(
     <article key={props.id} className='character' onMouseEnter={handleIsShow} onMouseLeave={handleIsShow} >

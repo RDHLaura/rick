@@ -1,19 +1,36 @@
 import {useAuthContext} from "../../contexts/authContext";
-import {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import InputForm from "../InputForm";
 import {validateEmail, validatePassword} from "../../functions/validateForms";
 import {Link} from "react-router-dom";
 import {REGISTER} from "../../config/router/paths";
 
+/**
+ * Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario y
+ * crea una sesión si coinciden con el usuario registrado en el localstorage
+ *
+ * @returns {JSX.Element} Página de login
+ */
 export function Login () {
   const {login} = useAuthContext();
   const formRef = useRef();
+  //incia los errores en null
   const initialValuesErrors = {
     email: null,
     password: null,
     login: null
   }
   const [errors, setErrors] = useState(initialValuesErrors);
+
+
+  function handleSubmit(event){
+    event.preventDefault();
+    const formData = new FormData (formRef.current); //obtiene la información del formulario
+    const values = Object.fromEntries(formData); // serializa los datos del formulario
+    if(onValidate(values)){ //si son validos loguea al usuario
+      login();
+    }
+  }
 
 //valida los inputs
   const onValidate = (values) =>{
@@ -23,22 +40,15 @@ export function Login () {
     //recupera los datos del usuario del localstorage y compruebo si coinciden con los inputs
     const dataUser = JSON.parse(localStorage.getItem('userData'));
     console.log(dataUser === null)
-    errorsForm.login = (dataUser === null) ? "No coincide usuario o contraseña registrado." : //evita error al intentar acceder a dataUSer.email
+    errorsForm.login = (dataUser === null) ? "No coincide usuario o contraseña registrado." : //si no hya ningún usuario registrado
                         (dataUser.email === values.email && dataUser.password === values.password)  ?
                           null :
                           "No coincide usuario o contraseña registrado." ;
     setErrors (errorsForm);
-    return (Object.values(errorsForm).every(e => e ===null));
+    return (Object.values(errorsForm).every(e => e ===null)); //devuelve true si no errores
   }
 
-  function handleSubmit(event){
-    event.preventDefault();
-    const formData = new FormData (formRef.current); //obtiene la información del formulario
-    const values = Object.fromEntries(formData); // serializa los datos del formulario
-    if(onValidate(values)){
-      login();
-    }
-  }
+
 
   return (
       <main className="mainFrame">
@@ -57,7 +67,6 @@ export function Login () {
               placeholder={"Password"}
               error={errors.password}
             />
-            {/* <input type="text" value={password} onChange={handleInputChange} /> */}
             <button className="form-button" type="submit">Iniciar sesión</button>
           </form>
         <Link className="link link-registro" to={REGISTER}>¿Aún no tienes cuenta?</Link>

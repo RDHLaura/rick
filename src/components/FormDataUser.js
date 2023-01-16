@@ -10,10 +10,21 @@ import {
 } from "../functions/validateForms";
 import {useThemeContext} from "../contexts/themeContext";
 
+/**
+ * Renderiza el formulario de registro o de actualización de datos del usuario.
+ * Comprueba que el usuario esté logueado, si lo está muestra los datos de este del localstorage (formulario de actualización de datos).
+ * Al enviar los datos, comprueba que estos sean correctos, en caso de error lo muestra en el dom, si es correcto registra al usuario y almacena
+ * sus datos en el localstorage
+ *
+ * @param props  datos del usuario almacenados en el localstorage
+ * @returns {JSX.Element} formulario
+ */
 export function FormDataUser (props) {
-  const {login} = useAuthContext();
+  /*Variables iniciales y estados*/
+  const {login, isAuthenticated} = useAuthContext();
   const {lightTheme} =useThemeContext()
 
+  //inicializo los errores en null
   const initialValuesErrors = {
     userName: null,
     birthday: null,
@@ -24,6 +35,29 @@ export function FormDataUser (props) {
   }
   const [errors, setErrors] = useState(initialValuesErrors);
 
+  /*Inicio con los datos almacenados en localstorage, que en caso de que no haya serán los valores inicializados con cadena vacía*/
+  const dataUser = JSON.parse(localStorage.getItem("userData")) || {
+    userName: "",
+    birthday: "",
+    email: "",
+    phone: "",
+    password: "",
+    password_check: ""
+  };
+
+  let [dataForm, setDataForm] = useState({...dataUser})
+  const handleChangeValue = (e)=>{ //cuando el usuario haga un cambio, este se almacena en dataForm
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value
+    });
+  }
+
+
+  const handleSubmit = (event) => { //se valida los datos
+    event.preventDefault();
+    onValidate(dataForm)
+  }
   const onValidate = (values) => {
     let errorsForm = {};
     errorsForm.userName = validateUserName(values.userName );
@@ -39,30 +73,13 @@ export function FormDataUser (props) {
     }
   }
 
-
-  let [dataForm, setDataForm] = useState(
-    {...props.dataUser}
-  )
-  const handleSubmit = (event) => {
-    event.preventDefault(); //evita que los datos se envien por GET
-     //valida los datos y muestra los errores
-    onValidate(dataForm)
-  }
-  const handleChangeValue = (e)=>{
-    setDataForm({
-      ...dataForm,
-    [e.target.name]: e.target.value
-    });
-    onValidate(dataForm)
-  }
-
+  //almacena los datos y loguea al usuario
   const storedata = (data) => {
     localStorage.userData = JSON.stringify(data);
     login();
   }
 
   return (
-
       <form className="form form-perfil-update" onSubmit={handleSubmit} >
         <div className="columns">
           <section className="column column-1">
@@ -71,7 +88,7 @@ export function FormDataUser (props) {
               <InputForm
                 name= {"userName"}
                 type= {"text"}
-                placeholder={props.dataUser.userName }
+                placeholder={(isAuthenticated) && dataUser.userName }
                 error={errors.userName}
                 onBlur ={handleChangeValue}
               />
@@ -81,7 +98,7 @@ export function FormDataUser (props) {
               <InputForm
                 name= {"birthday"}
                 type= {"date"}
-                placeholder={props.dataUser.birthday}
+                placeholder={(isAuthenticated) && dataUser.birthday}
                 error={errors.birthday}
                 onBlur ={handleChangeValue}
                 className={(lightTheme==="desactive")?`calendar calendar_d`:"calendar"}
@@ -92,7 +109,7 @@ export function FormDataUser (props) {
               <InputForm
                 name= {"email"}
                 type= {"email"}
-                placeholder={props.dataUser.email}
+                placeholder={(isAuthenticated) && dataUser.email}
                 error={errors.email}
                 onBlur ={handleChangeValue}
               />
@@ -105,7 +122,7 @@ export function FormDataUser (props) {
               <InputForm
                 name= {"phone"}
                 type= {"number"}
-                placeholder={props.dataUser.phone}
+                placeholder={(isAuthenticated) && dataUser.phone}
                 error={errors.phone}
                 onBlur ={handleChangeValue}
               />
@@ -115,7 +132,6 @@ export function FormDataUser (props) {
               <InputForm
                 name= {"password"}
                 type= {"password"}
-                placeholder={"Contraseña"}
                 error={errors.password}
                 onBlur ={handleChangeValue}
               />
@@ -125,7 +141,6 @@ export function FormDataUser (props) {
               <InputForm
                 name= {"password_check"}
                 type= {"password"}
-                placeholder={"Repetir contraseña"}
                 error={errors.password_check}
                 onBlur ={handleChangeValue}
               />

@@ -1,10 +1,18 @@
 import {createContext, isValidElement, useCallback, useContext, useMemo, useState} from "react";
 import PropTypes from "prop-types";
-import {useAuthContext} from "./authContext";
 
-
+/**
+ * creo un contexto que contiene un componente Provider
+ */
 export const ThemeContext = createContext();
 
+/**
+ * Se crea un contexto que contiene un componente provider,
+ * (Se usará para rodear las rutas y así estás podrán obtener el contexto),
+ * Contendrá una variable que indica si el tema claro está activado y una función que lo cambia
+ * @param children componentes que queramos que consuman el contexto
+ * @returns {JSX.Element} el elemento provider del contexto
+ */
 export function ThemeContextProvider ({children}){
 
   const activedLight = localStorage.lightTheme || 'desactive';
@@ -12,6 +20,7 @@ export function ThemeContextProvider ({children}){
 
   const root = document.getElementById('root');
 
+  //si se activa cambia la clase del elemento root
   const setTheme = useCallback(() => {
     (lightTheme === 'active') ?
       root.classList.add('theme--light') :
@@ -19,6 +28,7 @@ export function ThemeContextProvider ({children}){
 
   },[]);
 
+  //cambia de active a desactive la variable lightTheme y cambia la clase del root
   const changeTheme = useCallback(() => {
     (lightTheme === 'desactive')?
       lightTheme='active':

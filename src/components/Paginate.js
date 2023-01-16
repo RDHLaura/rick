@@ -1,7 +1,10 @@
 import React from "react";
 
-import { Link } from 'react-router-dom';
-
+/**
+ * Renderiza el componente que muestra la paginación de los personajes
+ * @param props recibe la pagina actual y el número total de páginas
+ * @returns {JSX.Element} paginación
+ */
 export function Paginate (props) {
 
   return(

@@ -6,15 +6,18 @@ import {Link} from "react-router-dom";
 import {HOME} from "../../config/router/paths";
 
 
-
+/**
+ * Muestra los personajes almacenados en la lista de favoritos,
+ * en caso de que no haya aún ninguno, muestra un mensaje que lo indica con un enlace a la pagina principal.
+ * Si existen llama a la función listarFavoritos que recibe un json con la información de todos los personajes de la lista.
+ *
+ * @returns {JSX.Element}
+ */
 const Favoritos = function () {
-  //Personajes
   const [personajes, setPersonajes] = useState(null);
-  //Favoritos
-  const favs = localStorage.favorites || "";
-
+  const favs = localStorage.favorites || "";//almaceno los favoritos del localstorage o inicio la variable como cadena vacia.
   const [listFav, setListFavs] = useState(favs);
-  const handleSetFavs = (e)=> {setListFavs(e)}
+  const handleSetFavs = (e) => {setListFavs(e)}
 
   useEffect(() => {
     listarFavoritos(setPersonajes, listFav);
@@ -23,7 +26,7 @@ const Favoritos = function () {
   return (
     <main className="mainFrame">
       <header className="header">
-       <Title />
+       <Title contentTitle="Favoritos"/>
       </header>
       {(personajes === null) ?
         <>
@@ -33,6 +36,8 @@ const Favoritos = function () {
         :
         <div className="grid-content">
           { //listado de cartas
+            /*si no recibe un array y tampoco es null es porque sçolo hay un personaje almacenado y la api devuelve
+            * un único objeto por lo que no se puede mapear */
             (personajes instanceof Array) ?
                 personajes.map((personaje) =>
                     <Card

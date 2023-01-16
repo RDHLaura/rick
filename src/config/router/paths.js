@@ -1,4 +1,6 @@
-
+/**
+ * Establece las rutas y las almacena en constantes para facilitar su uso
+ */
 export const PROFILE = '/dashboard/profile';
 export const DASHBOARD = '/dashboard';
 export const FAVORITES = '/dashboard/favorites'

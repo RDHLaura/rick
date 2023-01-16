@@ -1,28 +1,29 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useParams} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import {detallepersonaje} from "../../functions/requestsAPI";
+import {Title} from "../Title";
 
-
+/**
+ * Renderiza la pag que contiene la información de un personaje en concreto
+ * @returns {JSX.Element}
+ */
 export function CharacterDetail (){
-  const [personaje, setPersonaje] = useState(null)
-
+  const [personaje, setPersonaje] = useState(null);
   const params = useParams(); //devuelve un objeto con los parametros pasados por la url, lo uso para obtener la id del personaje
 
   useEffect(()=>{
     detallepersonaje(params.id, setPersonaje)
-  },[])
+  },[]);
 
   return (
     <>
       {personaje!= null ? (
-
         <main className="mainFrame">
-          <h1 className="title">{personaje.name}</h1>
+          <Title contentTitle = {personaje.name}/>
           <div className="container-character">
             <section className="container-img">
               <img className="img-character" src={personaje.image} alt="Foto del personaje<" />
             </section>
-
               <section className="container-details">
                 <div className="container-info">
                   <div className="fieldset-info ">
@@ -55,7 +56,10 @@ export function CharacterDetail (){
           </div>
 
         </main>
-      ) : ('no hay personaje')}
+      ) : (
+        <main className="mainFrame">
+          <h2 className="title title-h2">Este personaje se ha perdido...</h2>
+        </main>)}
 
 
 
