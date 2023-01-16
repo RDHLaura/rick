@@ -1,5 +1,5 @@
 import {useAuthContext} from "../contexts/authContext";
-import {useRef, useState} from "react";
+import {useState} from "react";
 import InputForm from "./InputForm";
 import {
   validateBirthday,

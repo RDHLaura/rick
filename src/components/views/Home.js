@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {LOGIN, LOGOUT, REGISTER} from "../../config/router/paths";
+import {LOGIN, REGISTER} from "../../config/router/paths";
 import {Title} from "../Title";
 
 /**

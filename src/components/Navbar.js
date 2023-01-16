@@ -40,7 +40,7 @@ export function Navbar(){
         <nav className={((menuDesplegado)? 'nav activo' : 'nav')} id="nav">
           <ul className="list_navbar">
             <li className="nav-bar-link"><button type="button" onClick={handleChangeTheme}><img className="img_theme"
-              src={require("../assets/images/day-and-night (1).png")}  /></button></li>
+              src={require("../assets/images/day-and-night (1).png")} alt="change theme"  /></button></li>
             { (!isAuthenticated) ?
               <>
                 <li className="nav-bar-link"><Link to={LOGIN} >Iniciar Sesión</Link></li>

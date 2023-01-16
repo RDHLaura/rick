@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -56,7 +56,7 @@ export function Card (props) {
               <p>Specie: </p>
               <p>{props.species}</p>
             </div>
-            {(props.type !="") ?
+            {(props.type !== "") ?
               <div className="information-p">
                 <p>Type: </p>
                 <p>{props.type}</p>

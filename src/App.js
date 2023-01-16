@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import {LOGIN, REGISTER, PROFILE, HOME, LOGOUT, DASHBOARD, FAVORITES, CHARACTER, CONTACT} from "./config/router/paths";
+import {LOGIN, REGISTER, PROFILE, LOGOUT, DASHBOARD, FAVORITES, CHARACTER, CONTACT} from "./config/router/paths";
 import {Login} from "./components/views/Login";
 import {Profile} from "./components/views/Profile";
 import {Logout} from "./components/views/Logout";

@@ -3,7 +3,6 @@ import {listarPersonajes} from "../../functions/requestsAPI";
 import {Card} from "../Card";
 import {Paginate} from "../Paginate";
 import SearchBar from "../SearchBar";
-import {useAuthContext} from "../../contexts/authContext";
 import {Title} from "../Title";
 
 /**
