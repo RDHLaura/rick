@@ -4,6 +4,7 @@ import InputForm from "../InputForm";
 import {validateEmail, validatePassword} from "../../functions/validateForms";
 import {Link} from "react-router-dom";
 import {REGISTER} from "../../config/router/paths";
+import {Title} from "../Title";
 
 /**
  * Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario y
@@ -49,10 +50,9 @@ export function Login () {
   }
 
 
-
   return (
       <main className="mainFrame">
-        <h1 className="title">Login</h1>
+        <Title contentTitle="Login" />
         <p id="login" className="text-error">{errors.login}</p>
         <form onSubmit={handleSubmit} className="form form-sesion" ref={formRef} >
             <InputForm

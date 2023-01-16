@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import InputForm from "../InputForm";
 import {validateEmail, validateText} from "../../functions/validateForms";
+import {Title} from "../Title";
 
 export function Contact () {
   const formRef = useRef();
@@ -31,7 +32,7 @@ export function Contact () {
   }
   return (
     <main className="mainFrame">
-      <h1 className="title">Contact</h1>
+      <Title contentTitle="Contacto" />
       <p id="login" className="text-error">{errors.login}</p>
       <p className="text-error">{messageSent}</p>
       <form onSubmit={handleSubmit} className="form form-sesion" ref={formRef} >
@@ -51,8 +52,8 @@ export function Contact () {
           />
           {errors.message && <p className="text-error">{errors.message}</p>}
         </div>
-        {/* <input type="text" value={password} onChange={handleInputChange} /> */}
-        <button className="form-button" type="submit">Iniciar sesión</button>
+
+        <button className="form-button" type="submit">Enviar</button>
       </form>
 
     </main>
