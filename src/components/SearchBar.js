@@ -1,7 +1,7 @@
 import {useRef, useState} from "react";
 
 /**
- * @memberOf Components
+ * @memberOf module:Components
  * @name SearchBar
  * @component
  * @description Rendeciza la barra de búsqueda

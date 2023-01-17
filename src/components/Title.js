@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 /**
- * @memberOf Components
+ * @memberOf module:Components
  * @name Title
  * @component
  * @description Título de la web, el cual contiene una imágen que se mueve en un intervalo de un segundo por el contenido del título.

@@ -1,7 +1,7 @@
 import React from 'react'
 
 /**
- * @memberOf Components
+ * @memberOf module:Components
  * @name InputForm
  * @component
  * @description Renderiza un componente input que contiene un div con el input y el mensaje de error en caso de que el dato introducido por el usuario sea inválido.

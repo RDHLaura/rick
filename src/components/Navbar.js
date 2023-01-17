@@ -5,7 +5,7 @@ import {useAuthContext} from "../contexts/authContext";
 import {useThemeContext} from "../contexts/themeContext";
 
 /**
- * @memberOf Components
+ * @memberOf module:Components
  * @name Navbar
  * @function
  * @description Renderiza la navbar, que se encarga de:<br>mostrar su versión de escritorio o móvil<br> cambiar de tema claro a oscuro en toda la página<br> de la navegación, oculta o muestra distintas partes de la página según el usuario esté logueado o no.

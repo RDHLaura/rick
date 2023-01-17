@@ -6,7 +6,7 @@ import facebook_logo from "../assets/images/facebook.svg";
 import youtube_logo from "../assets/images/youtube.svg";
 
 /**
- * @memberOf Components
+ * @memberOf module:Components
  * @name Footer
  * @function
  * @description Renderiza el elemento footer
