@@ -1,6 +1,6 @@
 
 import {FormDataUser} from "../FormDataUser";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {Title} from "../Title";
 
 
@@ -15,6 +15,7 @@ import {Title} from "../Title";
 export  function Profile() {
   const [dataUser, setDataUser] = useState(JSON.parse(localStorage.getItem("userData")));
   const [isShowForm, setIsShowForm] = useState(false)
+
   const handleIsShowForm = () => {setIsShowForm (!isShowForm);}
 
   return (

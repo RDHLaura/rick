@@ -74,7 +74,7 @@ export function FormDataUser (props) {
     //comprueba que no haya errores y almacena el nuevo usuario en localstorage
     if(Object.values(errorsForm).every(element => element === null)){
       storedata(values);
-      setDataForm(dataForm)
+      props.setDataUser(dataForm)
     }
   }
 
