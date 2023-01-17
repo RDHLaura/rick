@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rick/static/css/main.17171a1c.css",
-    "main.js": "/rick/static/js/main.d2927dd8.js",
+    "main.css": "/rick/static/css/main.d90d639e.css",
+    "main.js": "/rick/static/js/main.cd7646ac.js",
     "static/media/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.png": "/rick/static/media/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.a218ca229093de6f08d2.png",
     "static/media/RM_foto_favs.png": "/rick/static/media/RM_foto_favs.050bff843cb3599c020b.png",
     "static/media/rick-and-morty-icon-png-images-29.png": "/rick/static/media/rick-and-morty-icon-png-images-29.6a9216ce41e3666448de.png",
@@ -10,11 +10,11 @@
     "static/media/youtube.svg": "/rick/static/media/youtube.dbc7d236164f1986e045a4cb91449500.svg",
     "index.html": "/rick/index.html",
     "static/media/twitter.svg": "/rick/static/media/twitter.6bf76f88ad35fa49cc449e01dad4b548.svg",
-    "main.17171a1c.css.map": "/rick/static/css/main.17171a1c.css.map",
-    "main.d2927dd8.js.map": "/rick/static/js/main.d2927dd8.js.map"
+    "main.d90d639e.css.map": "/rick/static/css/main.d90d639e.css.map",
+    "main.cd7646ac.js.map": "/rick/static/js/main.cd7646ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.17171a1c.css",
-    "static/js/main.d2927dd8.js"
+    "static/css/main.d90d639e.css",
+    "static/js/main.cd7646ac.js"
   ]
 }
