@@ -1,9 +1,11 @@
 import {useRef, useState} from "react";
 
 /**
- * Rendeciza la barra de búsqueda
+ * @memberOf Components
+ * @name SearchBar
+ * @component
+ * @description Rendeciza la barra de búsqueda
  * @param props recibe los parámetros de la búsqueda y las funciones modificadoras que se pasarán en los manejadores de eventos
- *
  * @returns {JSX.Element} barra de búqueda
  */
 const SearchBar = function(props){

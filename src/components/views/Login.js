@@ -6,10 +6,12 @@ import {Link} from "react-router-dom";
 import {REGISTER} from "../../config/router/paths";
 import {Title} from "../Title";
 
+
 /**
- * Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario y
- * crea una sesión si coinciden con el usuario registrado en el localstorage
- *
+ * @memberOf module:Views
+ * @name Login
+ * @component
+ * @description Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario ycrea una sesión si coinciden con el usuario registrado en el localstorage
  * @returns {JSX.Element} Página de login
  */
 export function Login () {

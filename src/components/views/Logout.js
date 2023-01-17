@@ -1,8 +1,12 @@
 import {useEffect} from 'react';
 import {useAuthContext} from "../../contexts/authContext";
 
+
 /**
- * Este componente se usa para desloguear al usuario
+ * @name logout
+ * @memberOf module:Views
+ * @component
+ * @description Este componente se usa para desloguear al usuario
  * @returns {null}
  */
 export  function Logout() {

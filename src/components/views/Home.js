@@ -2,8 +2,12 @@ import {Link} from "react-router-dom";
 import {LOGIN, REGISTER} from "../../config/router/paths";
 import {Title} from "../Title";
 
+
 /**
- * Renderiza la página de inicio
+ * @memberOf module:Views
+ * @name Home
+ * @component
+ * @description Renderiza la página de inicio
  * @returns {JSX.Element} Página de inicio con los enlaces a login y registro
  */
 export  function Home() {

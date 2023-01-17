@@ -4,12 +4,13 @@ import {detallepersonaje} from "../../functions/requestsAPI";
 import {Title} from "../Title";
 
 /**
- * @module Vistas
+ * @module Views
  */
 
 /**
  * @name CharacterDetail
- * @memberOf module:Vistas
+ * @memberOf module:Views
+ * @component
  * @description Renderiza la pag que contiene la información de un personaje en concreto
  * @returns {JSX.Element}
  */

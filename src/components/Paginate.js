@@ -1,7 +1,9 @@
 import React from "react";
 
 /**
- * Renderiza el componente que muestra la paginación de los personajes
+ * @memberOf Components
+ * @name Paginate
+ * @description Renderiza el componente que muestra la paginación de los personajes
  * @param props recibe la pagina actual y el número total de páginas
  * @returns {JSX.Element} paginación
  */

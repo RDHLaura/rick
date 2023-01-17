@@ -1,12 +1,15 @@
 import React, { useState} from 'react'
 import { Link } from 'react-router-dom';
 
+/**
+ * @module Components
+ */
 
 /**
- * Renderiza los datos de un personaje y
- * controla la lista de favoritos para añadir o eliminar un id según la interacción del usuario.
- *
- * @component
+ * @memberOf module:Components
+ * @name Card
+ * @function
+ * @description Renderiza los datos de un personaje y controla la lista de favoritos para añadir o eliminar un id según la interacción del usuario.
  * @param props se le pasa los datos del personaje y la lista de favoritos para poder gestionarla y que muestre si pertenece a la lista de favoritos
  * @returns {JSX.Element} nodo card que contiene la información del personaje
  */

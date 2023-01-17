@@ -7,27 +7,27 @@ import {HOME} from "../../config/router/paths";
 import {Paginate} from "../Paginate";
 
 
+
 /**
- * Muestra los personajes almacenados en la lista de favoritos,
- * en caso de que no haya aún ninguno, muestra un mensaje que lo indica con un enlace a la pagina principal.
- * Si existen llama a la función listarFavoritos que recibe un json con la información de todos los personajes de la lista.
- *
+ * @memberOf module:Views
+ * @name Favoritos
+ * @component
+ * @description Muestra los personajes almacenados en la lista de favoritos, en caso de que no haya aún ninguno, muestra un mensaje que lo indica con un enlace a la pagina principal. Si existen llama a la función listarFavoritos que recibe un json con la información de todos los personajes de la lista.
  * @returns {JSX.Element}
  */
 const Favoritos = function () {
+
   const [personajes, setPersonajes] = useState(null);
+
   const favs = localStorage.favorites || "";//almaceno los favoritos del localstorage o inicio la variable como cadena vacia.
   const [listFav, setListFavs] = useState(favs);
   const handleSetFavs = (e) => {setListFavs(e)}
 
-
-
+  //paginación
   const [page, setPage] = useState(1)
   const [pages, setPages] = useState(0)
   const nextPage = useCallback(()=>{setPage(prev => prev + 1)}, []);
   const previusPage = useCallback(()=>{setPage(prev => prev - 1)}, []);
-
-
 
   useEffect(() => {
     listarFavoritos(setPersonajes, listFav, page, setPages);
@@ -45,7 +45,6 @@ const Favoritos = function () {
         next={nextPage}
         previus={previusPage}
       />
-
       {(personajes === null) ?
         <>
           <h2 className="advise"> No tienes ningún personaje favorito <Link className="link link-registro" to={HOME}>aún...</Link></h2>

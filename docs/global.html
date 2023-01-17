@@ -160,6 +160,133 @@
 
         
             
+<h4 class="name" id="AuthContextProvider"><span class="type-signature"></span>AuthContextProvider<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Se crea un contexto que contiene un componente provider, este va a recibir todos los componentes que queramos que consuman el contexto (Se usará para rodear las rutas y así estás podrán obtener el contexto), Contendrá una variable que indica si el usuario ha iniciado sesión y dos funciones login o logout
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="contexts_authContext.js.html">contexts/authContext.js</a>, <a href="contexts_authContext.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="Index"><span class="type-signature"></span>Index<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    renderiza el elemento root
+Este contiene el modo estricto que destaca los problemas potenciales de la aplicación  y
+hasrouter que evita que al recargar la pág esta dé un código 404 ya que solicita la url al servidor pra ello
+utiliza el hash # en la url para renderizar los componentes y evita así que el navegador envíe la petición al servidor
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="PROFILE"><span class="type-signature">(constant) </span>PROFILE<span class="type-signature"></span></h4>
 
 
@@ -284,13 +411,13 @@
 
         
             
-<h4 class="name" id="Title"><span class="type-signature"></span>Title<span class="type-signature"></span></h4>
+<h4 class="name" id="useAuthContext"><span class="type-signature"></span>useAuthContext<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Título de la web, el cual contiene una imágen que se mueve en un intervalo de un segundo por el contenido del título. *
+    custom hook que devolverá el objeto contexto
 </div>
 
 
@@ -328,7 +455,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Title.js.html">components/Title.js</a>, <a href="components_Title.js.html#line3">line 3</a>
+        <a href="contexts_authContext.js.html">contexts/authContext.js</a>, <a href="contexts_authContext.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
@@ -408,7 +535,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line26">line 26</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -438,1499 +565,6 @@
         
 <div class="param-desc">
     un elemento que renderiza un componente u otro según la ruta
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="AuthContextProvider"><span class="type-signature"></span>AuthContextProvider<span class="signature">(children)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Se crea un contexto que contiene un componente provider, este va a recibir todos los componentes que queramos que consuman el contexto
-(Se usará para rodear las rutas y así estás podrán obtener el contexto),
-Contendrá una variable que indica si el usuario ha iniciado sesión y dos funciones login o logout
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>children</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">de tipo objeto</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="contexts_authContext.js.html">contexts/authContext.js</a>, <a href="contexts_authContext.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    el elemento provider del contexto
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Card"><span class="type-signature"></span>Card<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza los datos de un personaje y
-controla la lista de favoritos para añadir o eliminar un id según la interacción del usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">se le pasa los datos del personaje y la lista de favoritos para poder gestionarla y que muestre si pertenece a la lista de favoritos</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Card.js.html">components/Card.js</a>, <a href="components_Card.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    nodo card que contiene la información del personaje
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Dashboard"><span class="type-signature"></span>Dashboard<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Dashboard.js.html">components/views/Dashboard.js</a>, <a href="components_views_Dashboard.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Página principal
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Favoritos"><span class="type-signature"></span>Favoritos<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Muestra los personajes almacenados en la lista de favoritos,
-en caso de que no haya aún ninguno, muestra un mensaje que lo indica con un enlace a la pagina principal.
-Si existen llama a la función listarFavoritos que recibe un json con la información de todos los personajes de la lista.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Favorites.js.html">components/views/Favorites.js</a>, <a href="components_views_Favorites.js.html#line16">line 16</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Footer"><span class="type-signature"></span>Footer<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza el elemento footer
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Footer.js.html">components/Footer.js</a>, <a href="components_Footer.js.html#line12">line 12</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    footer
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="FormDataUser"><span class="type-signature"></span>FormDataUser<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza el formulario de registro o de actualización de datos del usuario.
-Comprueba que el usuario esté logueado, si lo está muestra los datos de este del localstorage (formulario de actualización de datos).
-Al enviar los datos, comprueba que estos sean correctos, en caso de error lo muestra en el dom, si es correcto registra al usuario y almacena
-sus datos en el localstorage
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">datos del usuario almacenados en el localstorage</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_FormDataUser.js.html">components/FormDataUser.js</a>, <a href="components_FormDataUser.js.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    formulario
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Home"><span class="type-signature"></span>Home<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza la página de inicio
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Home.js.html">components/views/Home.js</a>, <a href="components_views_Home.js.html#line9">line 9</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Página de inicio con los enlaces a login y registro
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Login"><span class="type-signature"></span>Login<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario y
-crea una sesión si coinciden con el usuario registrado en el localstorage
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Login.js.html">components/views/Login.js</a>, <a href="components_views_Login.js.html#line15">line 15</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Página de login
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Login2"><span class="type-signature"></span>Login2<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario y
-crea una sesión si coinciden con el usuario registrado en el localstorage
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Login2.js.html">components/views/Login2.js</a>, <a href="components_views_Login2.js.html#line15">line 15</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Página de login
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Logout"><span class="type-signature"></span>Logout<span class="signature">()</span><span class="type-signature"> &rarr; {null}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Este componente se usa para desloguear al usuario
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Logout.js.html">components/views/Logout.js</a>, <a href="components_views_Logout.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">null</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Navbar"><span class="type-signature"></span>Navbar<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza la navbar, que se encarga de:<br>
-mostrar su versión de escritorio o móvil<br>
-cambiar de tema claro a oscuro en toda la página<br>
-de la navegación, oculta o muestra distintas partes de la página según el usuario esté logueado o no.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Navbar.js.html">components/Navbar.js</a>, <a href="components_Navbar.js.html#line15">line 15</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Paginate"><span class="type-signature"></span>Paginate<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza el componente que muestra la paginación de los personajes
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">recibe la pagina actual y el número total de páginas</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Paginate.js.html">components/Paginate.js</a>, <a href="components_Paginate.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    paginación
 </div>
 
 
@@ -2194,116 +828,6 @@ se redirige al login
     
 
     
-    <h4 class="name" id="Profile"><span class="type-signature"></span>Profile<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renderiza la página de perfil del usuario que contiene un formulario para que este pueda modificar sus datos
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Profile.js.html">components/views/Profile.js</a>, <a href="components_views_Profile.js.html#line11">line 11</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Pág perfil
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="PublicRoute"><span class="type-signature"></span>PublicRoute<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
@@ -2382,270 +906,6 @@ en caso contrario devuelve el outlet que será la sección pública
 
 
 
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="Register"><span class="type-signature"></span>Register<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Página de registro de usuario que contiene el formulario de registro
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_views_Register.js.html">components/views/Register.js</a>, <a href="components_views_Register.js.html#line10">line 10</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Página de registro
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="SearchBar"><span class="type-signature"></span>SearchBar<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Rendeciza la barra de búsqueda
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">recibe los parámetros de la búsqueda y las funciones modificadoras que se pasarán en los manejadores de eventos</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_SearchBar.js.html">components/SearchBar.js</a>, <a href="components_SearchBar.js.html#line9">line 9</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    barra de búqueda
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">JSX.Element</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -2909,7 +1169,7 @@ Contendrá una variable que indica si el tema claro está activado y una funció
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_FormDataUser.js.html">components/FormDataUser.js</a>, <a href="components_FormDataUser.js.html#line49">line 49</a>
+        <a href="components_FormDataUser.js.html">components/FormDataUser.js</a>, <a href="components_FormDataUser.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -3056,7 +1316,7 @@ Función asincrona que realiza la petición a la API de un personaje concreto<sp
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_requestsAPI.js.html">functions/requestsAPI.js</a>, <a href="functions_requestsAPI.js.html#line53">line 53</a>
+        <a href="functions_requestsAPI.js.html">functions/requestsAPI.js</a>, <a href="functions_requestsAPI.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -3269,116 +1529,6 @@ Función asincrona que realiza la petición a la API de un personaje concreto<sp
 
 
         
-            
-
-    
-
-    
-    <h4 class="name" id="useAuthContext"><span class="type-signature"></span>useAuthContext<span class="signature">()</span><span class="type-signature"> &rarr; {unknown}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    custom hook que devolverá el objeto contexto
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="contexts_authContext.js.html">contexts/authContext.js</a>, <a href="contexts_authContext.js.html#line56">line 56</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    contexto authContext
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">unknown</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
     
 
     
@@ -3394,14 +1544,14 @@ Función asincrona que realiza la petición a la API de un personaje concreto<sp
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Componentes.html">Componentes</a></li><li><a href="module-ValidatesForm.html">ValidatesForm</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#AuthContextProvider">AuthContextProvider</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Favoritos">Favoritos</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FormDataUser">FormDataUser</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Login2">Login2</a></li><li><a href="global.html#Logout">Logout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#PROFILE">PROFILE</a></li><li><a href="global.html#Paginate">Paginate</a></li><li><a href="global.html#PidealaAPIlainformaci%25C3%25B3ndelospersonajesqueest%25C3%25A1nalmacenadosenlalistadefavoritosdelusuario">Pide a la API la información de los personajes que están almacenados en la lista de favoritos del usuario</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#SearchBar">SearchBar</a></li><li><a href="global.html#ThemeContext">ThemeContext</a></li><li><a href="global.html#ThemeContextProvider">ThemeContextProvider</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#deleteFav">deleteFav</a></li><li><a href="global.html#detallepersonajeFunci%25C3%25B3nasincronaquerealizalapetici%25C3%25B3nalaAPIdeunpersonajeconcreto">detallepersonaje
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-ValidatesForm.html">ValidatesForm</a></li><li><a href="module-Views.html">Views</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#AuthContextProvider">AuthContextProvider</a></li><li><a href="global.html#Index">Index</a></li><li><a href="global.html#PROFILE">PROFILE</a></li><li><a href="global.html#PidealaAPIlainformaci%25C3%25B3ndelospersonajesqueest%25C3%25A1nalmacenadosenlalistadefavoritosdelusuario">Pide a la API la información de los personajes que están almacenados en la lista de favoritos del usuario</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#ThemeContext">ThemeContext</a></li><li><a href="global.html#ThemeContextProvider">ThemeContextProvider</a></li><li><a href="global.html#deleteFav">deleteFav</a></li><li><a href="global.html#detallepersonajeFunci%25C3%25B3nasincronaquerealizalapetici%25C3%25B3nalaAPIdeunpersonajeconcreto">detallepersonaje
 Función asincrona que realiza la petición a la API de un personaje concreto</a></li><li><a href="global.html#listarPersonajes">listarPersonajes</a></li><li><a href="global.html#useAuthContext">useAuthContext</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 17 2023 14:35:14 GMT+0100 (hora estándar de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 17 2023 20:31:56 GMT+0100 (hora estándar de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>

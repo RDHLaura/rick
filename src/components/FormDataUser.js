@@ -11,15 +11,12 @@ import {
 import {useThemeContext} from "../contexts/themeContext";
 
 /**
- * Renderiza el formulario de registro o de actualización de datos del usuario.
- * Comprueba que el usuario esté logueado, si lo está muestra los datos de este del localstorage (formulario de actualización de datos).
- * Al enviar los datos, comprueba que estos sean correctos, en caso de error lo muestra en el dom, si es correcto registra al usuario y almacena
- * sus datos en el localstorage
- *
- * @param props  datos del usuario almacenados en el localstorage
+ * @memberOf module:Components
+ * @name FormDataUser
+ * @description Renderiza el formulario de registro o de actualización de datos del usuario. Comprueba que el usuario esté logueado, si lo está muestra los datos de este del localstorage (formulario de actualización de datos). Al enviar los datos, comprueba que estos sean correctos, en caso de error lo muestra en el dom, si es correcto registra al usuario y almacena sus datos en el localstorage
  * @returns {JSX.Element} formulario
  */
-export function FormDataUser (props) {
+export function FormDataUser () {
   /*Variables iniciales y estados*/
   const {login, isAuthenticated} = useAuthContext();
   const {lightTheme} =useThemeContext()

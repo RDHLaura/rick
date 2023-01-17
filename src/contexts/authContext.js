@@ -9,11 +9,8 @@ import PropTypes from "prop-types";
 export const AuthContext = createContext();
 
 /**
- *
- * Se crea un contexto que contiene un componente provider, este va a recibir todos los componentes que queramos que consuman el contexto
- * (Se usará para rodear las rutas y así estás podrán obtener el contexto),
- * Contendrá una variable que indica si el usuario ha iniciado sesión y dos funciones login o logout
- *
+ * @name AuthContextProvider
+ * @description Se crea un contexto que contiene un componente provider, este va a recibir todos los componentes que queramos que consuman el contexto (Se usará para rodear las rutas y así estás podrán obtener el contexto), Contendrá una variable que indica si el usuario ha iniciado sesión y dos funciones login o logout
  * @param children de tipo objeto
  * @returns {JSX.Element} el elemento provider del contexto
  */
@@ -48,9 +45,9 @@ AuthContextProvider.propTypes = {
     children: PropTypes.object
 }
 
-
 /**
- * custom hook que devolverá el objeto contexto
+ * @name useAuthContext
+ * @description custom hook que devolverá el objeto contexto
  * @returns {unknown} contexto authContext
  */
 export function useAuthContext(){

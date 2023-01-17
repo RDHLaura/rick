@@ -18,8 +18,9 @@ import {CharacterDetail} from "./components/views/CharacterDetail";
 import {Contact} from "./components/views/Contact";
 
 /**
- * Contiene todas las rutas de los elementos que se renderizaran.
- *
+ * @name App
+ * @function
+ * @description Contiene todas las rutas de los elementos que se renderizaran.
  * @returns {JSX.Element} un elemento que renderiza un componente u otro según la ruta
  */
 function App() {

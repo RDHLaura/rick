@@ -5,9 +5,12 @@ import {Paginate} from "../Paginate";
 import SearchBar from "../SearchBar";
 import {Title} from "../Title";
 
+
 /**
+ * @memberOf module:Views
+ * @name Dashboard
  * @component
- * Página principal, renderiza y controla el listado de personajes, la búsqueda dinámica y la paginación
+ * @description Página principal, renderiza y controla el listado de personajes, la búsqueda dinámica y la paginación
  * @returns {JSX.Element} Página principal
  */
 export  function Dashboard() {

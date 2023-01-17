@@ -3,6 +3,15 @@ import InputForm from "../InputForm";
 import {validateEmail, validateText} from "../../functions/validateForms";
 import {Title} from "../Title";
 
+
+
+/**
+ * @memberOf module:Views
+ * @name Contact
+ * @component
+ * @description Página de contacto que contiene un formulario
+ * @returns {JSX.Element}
+ */
 export function Contact () {
   const formRef = useRef();
   const initialValuesErrors = {
@@ -13,6 +22,7 @@ export function Contact () {
   const [messageSent, setMessageSent] = useState("");
 
 //valida los inputs
+
   const onValidate = (values) =>{
     let errorsForm = {};
     errorsForm.email = validateEmail(values.email);

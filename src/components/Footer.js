@@ -6,7 +6,10 @@ import facebook_logo from "../assets/images/facebook.svg";
 import youtube_logo from "../assets/images/youtube.svg";
 
 /**
- * Renderiza el elemento footer
+ * @memberOf Components
+ * @name Footer
+ * @function
+ * @description Renderiza el elemento footer
  * @returns {JSX.Element} footer
  */
 export function Footer(){
