@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/views/Favorites.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/views/Favorites.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {useCallback, useEffect, useState} from 'react'
+import {listarFavoritos} from "../../functions/requestsAPI";
+import {Card} from "../Card";
+import {Title} from "../Title";
+import {Link} from "react-router-dom";
+import {HOME} from "../../config/router/paths";
+import {Paginate} from "../Paginate";
+
+
+
+/**
+ * @memberOf module:Views
+ * @name Favoritos
+ * @component
+ * @description Muestra los personajes almacenados en la lista de favoritos, en caso de que no haya aún ninguno, muestra un mensaje que lo indica con un enlace a la pagina principal. Si existen llama a la función listarFavoritos que recibe un json con la información de todos los personajes de la lista.
+ * @returns {JSX.Element}
+ */
+const Favoritos = function () {
+
+  const [personajes, setPersonajes] = useState(null);
+
+  const favs = localStorage.favorites || "";//almaceno los favoritos del localstorage o inicio la variable como cadena vacia.
+  const [listFav, setListFavs] = useState(favs);
+  const handleSetFavs = (e) => {setListFavs(e)}
+
+  //paginación
+  const [page, setPage] = useState(1)
+  const [pages, setPages] = useState(0)
+  const nextPage = useCallback(()=>{setPage(prev => prev + 1)}, []);
+  const previusPage = useCallback(()=>{setPage(prev => prev - 1)}, []);
+
+  useEffect(() => {
+    listarFavoritos(setPersonajes, listFav, page, setPages);
+  }, [ listFav, page])
+
+  return (
+    &lt;main className="mainFrame">
+
+      &lt;header className="header">
+       &lt;Title contentTitle="Favoritos"/>
+      &lt;/header>
+      &lt;Paginate
+        page={page}
+        pages={pages}
+        next={nextPage}
+        previus={previusPage}
+      />
+      {(personajes === null) ?
+        &lt;>
+          &lt;h2 className="advise"> No tienes ningún personaje favorito &lt;Link className="link link-registro" to={HOME}>aún...&lt;/Link>&lt;/h2>
+          &lt;img className="imag-favs" src={require("../../assets/images/RM_foto_favs.png")} alt="Portada Rick and Morty"/>
+        &lt;/>
+        :
+        &lt;div className="grid-content">
+          { //listado de cartas
+            /*si no recibe un array y tampoco es null es porque sçolo hay un personaje almacenado y la api devuelve
+            * un único objeto por lo que no se puede mapear */
+            (personajes instanceof Array) ?
+                personajes.map((personaje) =>
+                    &lt;Card
+                      Favs = {listFav}
+                      key={personaje.id}
+                      id={personaje.id}
+                      name={personaje.name}
+                      status={personaje.status}
+                      species={personaje.species}
+                      gender={personaje.gender}
+                      location={personaje.location}
+                      type={personaje.type}
+                      image={personaje.image}
+                      setListFavs={handleSetFavs}
+                    />
+                  ) :
+                    &lt;Card
+                      Favs = {listFav}
+                      key={personajes.id}
+                      id={personajes.id}
+                      name={personajes.name}
+                      status={personajes.status}
+                      species={personajes.species}
+                      gender={personajes.gender}
+                      location={personajes.location}
+                      type={personajes.type}
+                      image={personajes.image}
+                      setListFavs={handleSetFavs}
+                    />
+          }
+        &lt;/div>
+      }
+    &lt;/main>
+  );
+};
+
+export default Favoritos</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-ValidatesForm.html">ValidatesForm</a></li><li><a href="module-Views.html">Views</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#AuthContextProvider">AuthContextProvider</a></li><li><a href="global.html#Index">Index</a></li><li><a href="global.html#PROFILE">PROFILE</a></li><li><a href="global.html#PidealaAPIlainformaci%25C3%25B3ndelospersonajesqueest%25C3%25A1nalmacenadosenlalistadefavoritosdelusuario">Pide a la API la información de los personajes que están almacenados en la lista de favoritos del usuario</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#ThemeContext">ThemeContext</a></li><li><a href="global.html#ThemeContextProvider">ThemeContextProvider</a></li><li><a href="global.html#deleteFav">deleteFav</a></li><li><a href="global.html#detallepersonajeFunci%25C3%25B3nasincronaquerealizalapetici%25C3%25B3nalaAPIdeunpersonajeconcreto">detallepersonaje
+Función asincrona que realiza la petición a la API de un personaje concreto</a></li><li><a href="global.html#listarPersonajes">listarPersonajes</a></li><li><a href="global.html#useAuthContext">useAuthContext</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 17 2023 21:35:00 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

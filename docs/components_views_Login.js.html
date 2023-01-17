@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/views/Login.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/views/Login.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {useAuthContext} from "../../contexts/authContext";
+import {useRef, useState} from "react";
+import InputForm from "../InputForm";
+import {validateEmail, validatePassword} from "../../functions/validateForms";
+import {Link} from "react-router-dom";
+import {REGISTER} from "../../config/router/paths";
+import {Title} from "../Title";
+
+
+/**
+ * @memberOf module:Views
+ * @name Login
+ * @component
+ * @description Renderiza la página de login,(formulario no controlado), comprueba los datos introducidos por el usuario ycrea una sesión si coinciden con el usuario registrado en el localstorage
+ * @returns {JSX.Element} Página de login
+ */
+export function Login () {
+  const {login} = useAuthContext();
+  const formRef = useRef();
+  //incia los errores en null
+  const initialValuesErrors = {
+    email: null,
+    password: null,
+    login: null
+  }
+  const [errors, setErrors] = useState(initialValuesErrors);
+  const dataUser = JSON.parse(localStorage.getItem('userData'));
+
+
+  function handleSubmit(event){
+    event.preventDefault();
+    const formData = new FormData (formRef.current); //obtiene la información del formulario
+    const values = Object.fromEntries(formData); // serializa los datos del formulario
+    if(onValidate(values)){ //si son validos loguea al usuario
+      login();
+    }
+  }
+
+//valida los inputs
+  const onValidate = (values) =>{
+    //recupera los datos del usuario del localstorage y compruebo si coinciden con los inputs
+    return (Object.values(errors).every(e => e ===null)); //devuelve true si no errores
+  }
+
+  const handleValidateEmail = (e) => {
+    const error= validateEmail( e.target.value) ||(dataUser === null) ? "No coincide usuario o contraseña registrado." : //si no hya ningún usuario registrado
+                                                  ((dataUser.email === e.target.value) ?
+                                                    null :
+                                                    "No coincide con ningún usuario registrado.")
+    setErrors({
+      ...errors,
+      [e.target.name]: error
+    })
+  }
+
+  const handleValidatePassword = (e) => {
+    const error= validatePassword(e.target.value) || (dataUser === null) ? "No coincide usuario o contraseña registrado." :
+                  ((dataUser.password === e.target.value) ?
+                      null :
+                      "La contraseña no es correcta")
+    setErrors({
+      ...errors,
+      [e.target.name]: error
+    })
+  }
+
+
+  return (
+    &lt;main className="mainFrame">
+      &lt;Title contentTitle="Login" />
+      &lt;p id="login" className="text-error">{errors.login}&lt;/p>
+      &lt;form onSubmit={handleSubmit} className="form form-sesion" ref={formRef} >
+        &lt;InputForm
+          name= {"email"}
+          type= {"email"}
+          placeholder={"Email"}
+          error={errors.email}
+          onBlur={handleValidateEmail}
+        />
+        &lt;InputForm
+          name= {"password"}
+          type= {"password"}
+          placeholder={"Password"}
+          error={errors.password}
+          onBlur={handleValidatePassword}
+        />
+        &lt;button className="form-button" type="submit">Iniciar sesión&lt;/button>
+      &lt;/form>
+      &lt;Link className="link link-registro" to={REGISTER}>¿Aún no tienes cuenta?&lt;/Link>
+    &lt;/main>
+  );
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-ValidatesForm.html">ValidatesForm</a></li><li><a href="module-Views.html">Views</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#AuthContextProvider">AuthContextProvider</a></li><li><a href="global.html#Index">Index</a></li><li><a href="global.html#PROFILE">PROFILE</a></li><li><a href="global.html#PidealaAPIlainformaci%25C3%25B3ndelospersonajesqueest%25C3%25A1nalmacenadosenlalistadefavoritosdelusuario">Pide a la API la información de los personajes que están almacenados en la lista de favoritos del usuario</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#ThemeContext">ThemeContext</a></li><li><a href="global.html#ThemeContextProvider">ThemeContextProvider</a></li><li><a href="global.html#deleteFav">deleteFav</a></li><li><a href="global.html#detallepersonajeFunci%25C3%25B3nasincronaquerealizalapetici%25C3%25B3nalaAPIdeunpersonajeconcreto">detallepersonaje
+Función asincrona que realiza la petición a la API de un personaje concreto</a></li><li><a href="global.html#listarPersonajes">listarPersonajes</a></li><li><a href="global.html#useAuthContext">useAuthContext</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 17 2023 21:35:00 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

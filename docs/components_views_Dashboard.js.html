@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/views/Dashboard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/views/Dashboard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {useEffect, useState} from "react";
+import {listarPersonajes} from "../../functions/requestsAPI";
+import {Card} from "../Card";
+import {Paginate} from "../Paginate";
+import SearchBar from "../SearchBar";
+import {Title} from "../Title";
+
+
+/**
+ * @memberOf module:Views
+ * @name Dashboard
+ * @component
+ * @description Página principal, renderiza y controla el listado de personajes, la búsqueda dinámica y la paginación
+ * @returns {JSX.Element} Página principal
+ */
+export  function Dashboard() {
+  //Personajes
+  const [personajes, setPersonajes] = useState(null);
+  const [info, setInfo] = useState(null);
+
+  //paginación
+  let [page, setPage] = useState(1);
+  const handleNextPage = () =>{ setPage(++page) }
+  const handlePreviusPage = () =>{ setPage(--page) }
+
+  //Valores de los filtros de búsqueda, se inicializan en vacío salvo el nombre, que será la búsqueda por defecto del txto
+  let [busqueda, setBusqueda] = useState({
+    optionFilter: "name",
+    name: "",
+    type: "",
+    species: "",
+    optionStatus: "",
+    optionGender: ""
+  });
+
+  /*Cuando el usuario hacec cambios en los filtros de búsqueda se llama a esta función que actualiza los valores inciales*/
+  const handleSearch = (event) => {
+    const value = event.target.value
+    setBusqueda({
+      ...busqueda,
+      [event.target.name]: value});
+    setPage(1) //se establece la pag a 1 para que muestre desde la pimera pag de los resultados de la búsqueda
+  }
+
+  //Petición de personajes con búsqueda dinámica
+  useEffect(() => {
+    listarPersonajes(setPersonajes, page, busqueda, setInfo);
+  }, [busqueda, page]) //cuando cambien estos valores se vuelve a ejecutar useEffect
+
+  //Favoritos
+  const favs = localStorage.favorites || "";
+  const [listFav, setListFavs] = useState(favs);
+  const handleSetFavs = (e)=> {setListFavs(e)}
+
+
+  return (
+    &lt;main className="mainFrame">
+      &lt;header className="header">
+        &lt;Title contentTitle = "Rick and Morty"/>
+      &lt;/header>
+      &lt;SearchBar
+        busqueda = {busqueda}
+        handleSearch = {handleSearch} />
+      { //Paginación
+        (info === null) ?
+          &lt;p>No hay páginas&lt;/p>
+          :
+          &lt;Paginate
+            page = {page}
+            pages = {info.pages}
+            previus = {handlePreviusPage}
+            next = {handleNextPage}
+          />
+      }
+      &lt;div className="grid-content">
+        { //listado de cartas
+          personajes !== null ? (
+            personajes.map((personaje) =>
+              (
+
+                &lt;Card
+                  Favs = {listFav}
+                  key={personaje.id}
+                  id={personaje.id}
+                  name={personaje.name}
+                  status={personaje.status}
+                  species={personaje.species}
+                  gender={personaje.gender}
+                  location={personaje.location}
+                  type={personaje.type}
+                  image={personaje.image}
+                  setListFavs={handleSetFavs}
+                />
+
+              )
+            )) : ('Cargando...')
+        }
+
+      &lt;/div>
+    &lt;/main>
+  );
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-ValidatesForm.html">ValidatesForm</a></li><li><a href="module-Views.html">Views</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#AuthContextProvider">AuthContextProvider</a></li><li><a href="global.html#Index">Index</a></li><li><a href="global.html#PROFILE">PROFILE</a></li><li><a href="global.html#PidealaAPIlainformaci%25C3%25B3ndelospersonajesqueest%25C3%25A1nalmacenadosenlalistadefavoritosdelusuario">Pide a la API la información de los personajes que están almacenados en la lista de favoritos del usuario</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#ThemeContext">ThemeContext</a></li><li><a href="global.html#ThemeContextProvider">ThemeContextProvider</a></li><li><a href="global.html#deleteFav">deleteFav</a></li><li><a href="global.html#detallepersonajeFunci%25C3%25B3nasincronaquerealizalapetici%25C3%25B3nalaAPIdeunpersonajeconcreto">detallepersonaje
+Función asincrona que realiza la petición a la API de un personaje concreto</a></li><li><a href="global.html#listarPersonajes">listarPersonajes</a></li><li><a href="global.html#useAuthContext">useAuthContext</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 17 2023 21:35:00 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

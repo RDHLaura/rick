@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Navbar.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Navbar.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {Link} from "react-router-dom";
+import {FAVORITES, HOME, LOGIN, LOGOUT, PROFILE, REGISTER} from "../config/router/paths";
+import {useEffect, useState} from "react";
+import {useAuthContext} from "../contexts/authContext";
+import {useThemeContext} from "../contexts/themeContext";
+
+/**
+ * @memberOf module:Components
+ * @name Navbar
+ * @function
+ * @description Renderiza la navbar, que se encarga de:&lt;br>mostrar su versión de escritorio o móvil&lt;br> cambiar de tema claro a oscuro en toda la página&lt;br> de la navegación, oculta o muestra distintas partes de la página según el usuario esté logueado o no.
+ * @returns {JSX.Element}
+ */
+export function Navbar(){
+  const {isAuthenticated} = useAuthContext();
+
+  //desplegar menú móvil
+  const [menuDesplegado, setMenuDesplegado] = useState(false);
+  const desplegar = () =>{
+    setMenuDesplegado(!menuDesplegado);
+  }
+  //theme light/dark
+  const {setTheme, changeTheme} = useThemeContext();
+  useEffect(()=>{
+    setTheme();
+  },[]);
+  const handleChangeTheme = ()=>{changeTheme();}
+
+  return (
+    &lt;>
+      &lt;header className="navbar">
+        &lt;Link className="logo" to={HOME}>
+          &lt;p className="logo-name">Rick and Morty&lt;/p>
+        &lt;/Link>
+        &lt;button className='button-burguer' onClick={desplegar}>&lt;i className="fa-solid fa-bars">&lt;/i>&lt;/button>
+        &lt;nav className={((menuDesplegado)? 'nav activo' : 'nav')} id="nav">
+          &lt;ul className="list_navbar">
+            &lt;li className="nav-bar-link">&lt;button type="button" onClick={handleChangeTheme}>&lt;img className="img_theme"
+              src={require("../assets/images/day-and-night (1).png")} alt="change theme"  />&lt;/button>&lt;/li>
+            { (!isAuthenticated) ?
+              &lt;>
+                &lt;li className="nav-bar-link">&lt;Link to={LOGIN} >Iniciar Sesión&lt;/Link>&lt;/li>
+                &lt;li className="nav-bar-link">&lt;Link to={REGISTER} >Registro&lt;/Link>&lt;/li>
+              &lt;/>
+              :
+              &lt;>
+                &lt;li className="nav-bar-link">&lt;Link to={FAVORITES}>Favoritos&lt;/Link>&lt;/li>
+                &lt;li className="nav-bar-link">&lt;Link to={LOGOUT}>Cerrar Sesión&lt;/Link>&lt;/li>
+                &lt;li className="nav-bar-link">
+                  &lt;Link to={PROFILE}>
+                    &lt;img className="perfil-img nav-img"
+                         src= {require("../assets/images/88214-sanchez-morty-gourd-smith-citrullus-portal-rick.png")}
+                         alt="Foto de perfil de usuario" />
+                  &lt;/Link>
+                &lt;/li>
+              &lt;/>
+            }
+          &lt;/ul>
+        &lt;/nav>
+      &lt;/header>
+    &lt;/>
+  )
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-ValidatesForm.html">ValidatesForm</a></li><li><a href="module-Views.html">Views</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#AuthContextProvider">AuthContextProvider</a></li><li><a href="global.html#Index">Index</a></li><li><a href="global.html#PROFILE">PROFILE</a></li><li><a href="global.html#PidealaAPIlainformaci%25C3%25B3ndelospersonajesqueest%25C3%25A1nalmacenadosenlalistadefavoritosdelusuario">Pide a la API la información de los personajes que están almacenados en la lista de favoritos del usuario</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PublicRoute">PublicRoute</a></li><li><a href="global.html#ThemeContext">ThemeContext</a></li><li><a href="global.html#ThemeContextProvider">ThemeContextProvider</a></li><li><a href="global.html#deleteFav">deleteFav</a></li><li><a href="global.html#detallepersonajeFunci%25C3%25B3nasincronaquerealizalapetici%25C3%25B3nalaAPIdeunpersonajeconcreto">detallepersonaje
+Función asincrona que realiza la petición a la API de un personaje concreto</a></li><li><a href="global.html#listarPersonajes">listarPersonajes</a></li><li><a href="global.html#useAuthContext">useAuthContext</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 17 2023 21:35:00 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
