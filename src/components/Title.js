@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 
 /**
- * Título de la web, el cual contiene una imágen que se mueve en un intervalo de un segundo por el contenido del título.
  *
+ * @name Title
+ * @description Título de la web, el cual contiene una imágen que se mueve en un intervalo de un segundo por el contenido del título. *
  * @param props recibe el texto del título de la pág
  * @returns {JSX.Element} Título
  */

@@ -1,13 +1,19 @@
 /**
+ * @module ValidatesForm
+ */
+
+/**
+ * @memberOf module:ValidatesForm
+ * @name validateEmail
  * @function
- * Función que valida si el correo introducido es correcto
+ * @description Función que valida si el correo introducido es correcto
  * @param data input del usuario
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
 const validateEmail = (data) => {
 
   let error = emptyinput(data);
-  const regexEmail = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
+  const regexEmail = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/g;
 
   if(error === "" && !regexEmail.test(data)){
     error = "Email inválido";
@@ -17,8 +23,10 @@ const validateEmail = (data) => {
 }
 
 /**
+ * @memberOf module:ValidatesForm
+ * @name validatePassword
  * @function
- * Función que valida si el password introducido es correcto
+ * @description Función que valida si el password introducido es correcto
  * @param data input del usuario
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
@@ -35,8 +43,10 @@ const validatePassword = (data) => {
 }
 
 /**
+ * @memberOf module:ValidatesForm
+ * @name validatePasswordCheck
  * @function
- * Función que valida si el password introducido es correcto y si coincide con el password introducido previamente
+ * @description Función que valida si el password introducido es correcto y si coincide con el password introducido previamente
  * @param data input del usuario
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
@@ -52,8 +62,10 @@ const validatePasswordCheck = (pw, pw_check)=>{
 }
 
 /**
+ * @memberOf module:ValidatesForm
+ * @name validateUserName
  * @function
- * Función que valida si el userName introducido es correcto
+ * @description Función que valida si el userName introducido es correcto
  * @param data input del usuario
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
@@ -70,8 +82,10 @@ const validateUserName = (data)=>{
 }
 
 /**
+ * @memberOf module:ValidatesForm
+ * @name validateBirthday
  * @function
- * Función que valida si la fecha de nacimiento es válida y si el usuario es mayor de 16 años
+ * @description Función que valida si la fecha de nacimiento es válida y si el usuario es mayor de 16 años
  * @param data input del usuario
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
@@ -90,8 +104,10 @@ const validateBirthday = (data)=>{
 }
 
 /**
+ * @memberOf module:ValidatesForm
+ * @name validatePhone
  * @function
- * Función que valida si el télefono introducido es correcto
+ * @description Función que valida si el télefono introducido es correcto
  * @param data input del usuario
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
@@ -107,6 +123,14 @@ const validatePhone = (data)=>{
   return (error==="")? null : error;
 }
 
+/**
+ * @memberOf module:ValidatesForm
+ * @name validateText
+ * @function
+ * @description Función que valida si el texto es válido
+ * @param data input del usuario
+ * @returns {null|string} null si el input es válido o el mensaje de error
+ */
 const validateText = (data)=>{
 
   let error = emptyinput(data);
@@ -119,8 +143,10 @@ const validateText = (data)=>{
   return (error==="")? null : error;
 }
 /**
+ * @memberOf module:ValidatesForm
+ * @name emptyinput
  * @function
- * Comprueba si el usuario no ha escrito nada
+ * @description Comprueba si el usuario no ha escrito nada
  * @param data input del usuario
  * @returns {string} mensaje de error
  */

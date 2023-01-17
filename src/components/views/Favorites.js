@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import {listarFavoritos} from "../../functions/requestsAPI";
 import {Card} from "../Card";
 import {Title} from "../Title";
 import {Link} from "react-router-dom";
 import {HOME} from "../../config/router/paths";
+import {Paginate} from "../Paginate";
 
 
 /**
@@ -19,15 +20,32 @@ const Favoritos = function () {
   const [listFav, setListFavs] = useState(favs);
   const handleSetFavs = (e) => {setListFavs(e)}
 
+
+
+  const [page, setPage] = useState(1)
+  const [pages, setPages] = useState(0)
+  const nextPage = useCallback(()=>{setPage(prev => prev + 1)}, []);
+  const previusPage = useCallback(()=>{setPage(prev => prev - 1)}, []);
+
+
+
   useEffect(() => {
-    listarFavoritos(setPersonajes, listFav);
-  }, [ listFav])
+    listarFavoritos(setPersonajes, listFav, page, setPages);
+  }, [ listFav, page])
 
   return (
     <main className="mainFrame">
+
       <header className="header">
        <Title contentTitle="Favoritos"/>
       </header>
+      <Paginate
+        page={page}
+        pages={pages}
+        next={nextPage}
+        previus={previusPage}
+      />
+
       {(personajes === null) ?
         <>
           <h2 className="advise"> No tienes ningún personaje favorito <Link className="link link-registro" to={HOME}>aún...</Link></h2>

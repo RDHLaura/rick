@@ -22,6 +22,7 @@ export function Login () {
     login: null
   }
   const [errors, setErrors] = useState(initialValuesErrors);
+  const dataUser = JSON.parse(localStorage.getItem('userData'));
 
 
   function handleSubmit(event){
@@ -35,42 +36,55 @@ export function Login () {
 
 //valida los inputs
   const onValidate = (values) =>{
-    let errorsForm = {};
-    errorsForm.email = validateEmail(values.email);
-    errorsForm.password = validatePassword(values.password);
     //recupera los datos del usuario del localstorage y compruebo si coinciden con los inputs
-    const dataUser = JSON.parse(localStorage.getItem('userData'));
-    console.log(dataUser === null)
-    errorsForm.login = (dataUser === null) ? "No coincide usuario o contraseña registrado." : //si no hya ningún usuario registrado
-                        (dataUser.email === values.email && dataUser.password === values.password)  ?
-                          null :
-                          "No coincide usuario o contraseña registrado." ;
-    setErrors (errorsForm);
-    return (Object.values(errorsForm).every(e => e ===null)); //devuelve true si no errores
+    return (Object.values(errors).every(e => e ===null)); //devuelve true si no errores
+  }
+
+  const handleValidateEmail = (e) => {
+    const error= validateEmail( e.target.value) ||(dataUser === null) ? "No coincide usuario o contraseña registrado." : //si no hya ningún usuario registrado
+                                                  ((dataUser.email === e.target.value) ?
+                                                    null :
+                                                    "No coincide con ningún usuario registrado.")
+    setErrors({
+      ...errors,
+      [e.target.name]: error
+    })
+  }
+
+  const handleValidatePassword = (e) => {
+    const error= validatePassword(e.target.value) || (dataUser === null) ? "No coincide usuario o contraseña registrado." :
+                  ((dataUser.password === e.target.value) ?
+                      null :
+                      "La contraseña no es correcta")
+    setErrors({
+      ...errors,
+      [e.target.name]: error
+    })
   }
 
 
   return (
-      <main className="mainFrame">
-        <Title contentTitle="Login" />
-        <p id="login" className="text-error">{errors.login}</p>
-        <form onSubmit={handleSubmit} className="form form-sesion" ref={formRef} >
-            <InputForm
-              name= {"email"}
-              type= {"email"}
-              placeholder={"Email"}
-              error={errors.email}
-            />
-            <InputForm
-              name= {"password"}
-              type= {"password"}
-              placeholder={"Password"}
-              error={errors.password}
-            />
-            <button className="form-button" type="submit">Iniciar sesión</button>
-          </form>
-        <Link className="link link-registro" to={REGISTER}>¿Aún no tienes cuenta?</Link>
-      </main>
+    <main className="mainFrame">
+      <Title contentTitle="Login" />
+      <p id="login" className="text-error">{errors.login}</p>
+      <form onSubmit={handleSubmit} className="form form-sesion" ref={formRef} >
+        <InputForm
+          name= {"email"}
+          type= {"email"}
+          placeholder={"Email"}
+          error={errors.email}
+          onBlur={handleValidateEmail}
+        />
+        <InputForm
+          name= {"password"}
+          type= {"password"}
+          placeholder={"Password"}
+          error={errors.password}
+          onBlur={handleValidatePassword}
+        />
+        <button className="form-button" type="submit">Iniciar sesión</button>
+      </form>
+      <Link className="link link-registro" to={REGISTER}>¿Aún no tienes cuenta?</Link>
+    </main>
   );
 }
-

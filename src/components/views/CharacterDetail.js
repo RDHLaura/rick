@@ -4,7 +4,13 @@ import {detallepersonaje} from "../../functions/requestsAPI";
 import {Title} from "../Title";
 
 /**
- * Renderiza la pag que contiene la información de un personaje en concreto
+ * @module Vistas
+ */
+
+/**
+ * @name CharacterDetail
+ * @memberOf module:Vistas
+ * @description Renderiza la pag que contiene la información de un personaje en concreto
  * @returns {JSX.Element}
  */
 export function CharacterDetail (){
@@ -24,35 +30,35 @@ export function CharacterDetail (){
             <section className="container-img">
               <img className="img-character" src={personaje.image} alt="Foto del personaje<" />
             </section>
-              <section className="container-details">
-                <div className="container-info">
-                  <div className="fieldset-info ">
-                    <p className="title-h3 title-detail ">Status</p>
-                    <p className="info">{personaje.status}</p>
-                  </div>
-                  <div className="fieldset-info">
-                    <p className="title-h3 title-detail">Specie</p>
-                    <p className="info">{personaje.species}</p>
-                  </div>
-                  {(personaje.type!== "")?
-                  <div className="fieldset-info">
-                    <p className="title-h3 title-detail">Type</p>
-                    <p className="info">{personaje.type}</p>
-                  </div> : null}
-                  <div className="fieldset-info">
-                    <p className="title-h3 title-detail">Gender</p>
-                    <p className="info">{personaje.gender}</p>
-                  </div>
-                  <div className="fieldset-info">
-                    <p className="title-h3 title-detail">origin</p>
-                    <p className="info">{personaje.origin.name}</p>
-                  </div>
-                  <div className="fieldset-info">
-                    <p className="title-h3 title-detail">Last known location</p>
-                    <p className="info">{personaje.location.name}</p>
-                  </div>
+            <section className="container-details">
+              <div className="container-info">
+                <div className="fieldset-info ">
+                  <p className="title-h3 title-detail ">Status</p>
+                  <p className="info">{personaje.status}</p>
                 </div>
-              </section>
+                <div className="fieldset-info">
+                  <p className="title-h3 title-detail">Specie</p>
+                  <p className="info">{personaje.species}</p>
+                </div>
+                {(personaje.type!== "")?
+                <div className="fieldset-info">
+                  <p className="title-h3 title-detail">Type</p>
+                  <p className="info">{personaje.type}</p>
+                </div> : null}
+                <div className="fieldset-info">
+                  <p className="title-h3 title-detail">Gender</p>
+                  <p className="info">{personaje.gender}</p>
+                </div>
+                <div className="fieldset-info">
+                  <p className="title-h3 title-detail">origin</p>
+                  <p className="info">{personaje.origin.name}</p>
+                </div>
+                <div className="fieldset-info">
+                  <p className="title-h3 title-detail">Last known location</p>
+                  <p className="info">{personaje.location.name}</p>
+                </div>
+              </div>
+            </section>
           </div>
 
         </main>

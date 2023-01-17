@@ -29,36 +29,38 @@
             border-radius: 15px
             padding: 1px
             border:  3px solid var(--color_letra_boton_hover)
-    .container-details
-        padding: 2rem
-        @media (max-width: 850px)
-            width: 70%
-        @media (max-width: 650px)
-            width: 90%
-            padding: 0
-        width: 50%
+.container-details
+    padding: 2rem
+    @media (max-width: 850px)
+        width: 70%
+    @media (max-width: 650px)
+        width: 90%
+        padding: 0
+    width: 50%
+    height: 100%
+    .container-info
         height: 100%
-        .container-info
-            height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        .fieldset-info
+            width: 100%
+            align-content: space-between
             display: flex
-            flex-direction: column
-            justify-content: center
-            align-items: center
-            .fieldset-info
-                width: 100%
-                align-content: space-between
-                display: flex
-                flex-direction: row
-                background-color: rgba(32, 36, 51, 0.5)
-                padding: 0 2rem
-                border-bottom:  1px solid var(--color_titulo)
+            flex-direction: row
+            background-color: var(--background_card) //rgba(32, 36, 51, 0.5)
+            padding: 0 2rem
+            border-bottom:  1px solid #d2e054
 
-                border-radius: 15px
-                .title-detail
-                    width: 40%
-                    color: var(--color_titulo)
-                .info
-                    padding-left: 1rem
-                    width: 60%
-                    word-break: break-all
-                    text-align: justify
+            border-radius: 15px
+            .title-detail
+                width: 40%
+                color: var(--color_titulo)
+                font-size: 1.3rem
+            .info
+                padding-left: 1rem
+                width: 60%
+                word-break: break-all
+                text-align: justify
+                font-weight: bold

@@ -34,16 +34,17 @@ page=${pag}
  * @param setPersonajes actualiza el estado donde se almacenan los personajes
  * @param favorites lista con los ids de los personajes favoritos que se quieren obtener
  */
-const listarFavoritos = async ( setPersonajes, favorites) => {
-  console.log("favorites: "+ favorites)
+const listarFavoritos = async ( setPersonajes, favorites, page, setPages) => {
+
   if(favorites===""){
     setPersonajes(null)
   }else{
     const listFavorites = favorites
       .trim()
-      .split(' ')
-      .join(',')
-    const peticion = await axios.get(`https://rickandmortyapi.com/api/character/${listFavorites}`);
+      .split(' ');
+    setPages(Math.ceil(listFavorites.length/20));
+    const listPaginated = listFavorites.slice((page-1)*20, (20*page));
+    const peticion = await axios.get(`https://rickandmortyapi.com/api/character/${listPaginated.join(',')}`);
     const results = peticion.data;
     setPersonajes(results);
   }

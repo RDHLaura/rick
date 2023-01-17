@@ -18,6 +18,7 @@ export default function InputForm(props) {
                 placeholder={props.placeholder}
                 defaultValue={props.value}
                 onBlur={props.onBlur}
+                onChange={props.onChange}
             />
             {props.error && <p className="text-error">{props.error}</p>}
         </div>

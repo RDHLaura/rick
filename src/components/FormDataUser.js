@@ -46,6 +46,12 @@ export function FormDataUser (props) {
   };
 
   let [dataForm, setDataForm] = useState({...dataUser})
+  /**
+   * @description Función que elimina un personaje de la lista de favoritos
+   * @name deleteFav
+   * @function
+   * @param id id del personaje
+   */
   const handleChangeValue = (e)=>{ //cuando el usuario haga un cambio, este se almacena en dataForm
     setDataForm({
       ...dataForm,
@@ -57,6 +63,7 @@ export function FormDataUser (props) {
   const handleSubmit = (event) => { //se valida los datos
     event.preventDefault();
     onValidate(dataForm)
+
   }
   const onValidate = (values) => {
     let errorsForm = {};
@@ -70,6 +77,7 @@ export function FormDataUser (props) {
     //comprueba que no haya errores y almacena el nuevo usuario en localstorage
     if(Object.values(errorsForm).every(element => element === null)){
       storedata(values);
+      props.setDataUser(dataForm)
     }
   }
 
@@ -90,17 +98,17 @@ export function FormDataUser (props) {
                 type= {"text"}
                 placeholder={(isAuthenticated) && dataUser.userName }
                 error={errors.userName}
-                onBlur ={handleChangeValue}
+                onChange ={handleChangeValue}
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend>Fecha de nacimiento</legend>
+              <legend>Fecha de nacimiento: </legend>
               <InputForm
                 name= {"birthday"}
                 type= {"date"}
                 placeholder={(isAuthenticated) && dataUser.birthday}
                 error={errors.birthday}
-                onBlur ={handleChangeValue}
+                onChange ={handleChangeValue}
                 className={(lightTheme==="desactive")?`calendar calendar_d`:"calendar"}
               />
             </fieldset>
@@ -111,7 +119,7 @@ export function FormDataUser (props) {
                 type= {"email"}
                 placeholder={(isAuthenticated) && dataUser.email}
                 error={errors.email}
-                onBlur ={handleChangeValue}
+                onChange ={handleChangeValue}
               />
             </fieldset>
           </section>
@@ -124,7 +132,7 @@ export function FormDataUser (props) {
                 type= {"number"}
                 placeholder={(isAuthenticated) && dataUser.phone}
                 error={errors.phone}
-                onBlur ={handleChangeValue}
+                onChange ={handleChangeValue}
               />
             </fieldset>
             <fieldset className="fieldset">
@@ -133,7 +141,7 @@ export function FormDataUser (props) {
                 name= {"password"}
                 type= {"password"}
                 error={errors.password}
-                onBlur ={handleChangeValue}
+                onChange ={handleChangeValue}
               />
             </fieldset>
             <fieldset className="fieldset">
@@ -142,7 +150,7 @@ export function FormDataUser (props) {
                 name= {"password_check"}
                 type= {"password"}
                 error={errors.password_check}
-                onBlur ={handleChangeValue}
+                onChange ={handleChangeValue}
               />
             </fieldset>
           </section>
