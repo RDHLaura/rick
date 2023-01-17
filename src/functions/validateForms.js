@@ -90,9 +90,22 @@ const validateUserName = (data)=>{
  * @returns {null|string} null si el input es válido o el mensaje de error
  */
 const validateBirthday = (data)=>{
+  console.log(data)
 
   let error= emptyinput(data);
-  const birthday = new Date (data);
+  if(!/^\d{4}-\d{1,2}-\d{1,2}$/.test(data))
+    return "Formato de fecha inválido"
+
+  //Validación de cada parte de la fecha
+  const partsDate = data.split('-').map((element) => parseInt(element, 10));
+  partsDate[0] -= 1;
+  const birthday = new Date(partsDate[0], partsDate[1], partsDate[2]);
+  if (birthday.getFullYear() !== partsDate[0] || birthday.getMonth() !== partsDate[1] || birthday.getDate() !== partsDate[2]) {
+    return "Formato de fecha inválido";
+  }
+
+  //comprueba si es mayor de 16 años
+  //const birthday = new Date (data);
   birthday.setFullYear(birthday.getFullYear()+16);
   let now = new Date();
 

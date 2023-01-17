@@ -24,18 +24,26 @@ export  function Dashboard() {
   const handlePreviusPage = () =>{ setPage(--page) }
 
   //Valores de los filtros de búsqueda, se inicializan en vacío salvo el nombre, que será la búsqueda por defecto del txto
-  let [busqueda, setBusqueda] = useState({
+  const initialValuesBusqueda= {
     optionFilter: "name",
     name: "",
     type: "",
     species: "",
     optionStatus: "",
     optionGender: ""
-  });
+  }
+  let [busqueda, setBusqueda] = useState(initialValuesBusqueda);
+  const [inputError, setInputError] = useState(null)
 
   /*Cuando el usuario hacec cambios en los filtros de búsqueda se llama a esta función que actualiza los valores inciales*/
   const handleSearch = (event) => {
-    const value = event.target.value
+    const value = event.target.value;
+    const regexValidate = /^[^\/"'`$%{}]*$/;
+    if (!regexValidate.test(value)) {
+      setInputError("Caracter especial inválido.");
+      return null;
+    }
+    setInputError(null)
     setBusqueda({
       ...busqueda,
       [event.target.name]: value});
@@ -45,7 +53,7 @@ export  function Dashboard() {
   //Petición de personajes con búsqueda dinámica
   useEffect(() => {
     listarPersonajes(setPersonajes, page, busqueda, setInfo);
-  }, [busqueda, page]) //cuando cambien estos valores se vuelve a ejecutar useEffect
+  }, [busqueda, page, inputError]) //cuando cambien estos valores se vuelve a ejecutar useEffect
 
   //Favoritos
   const favs = localStorage.favorites || "";
@@ -58,9 +66,11 @@ export  function Dashboard() {
       <header className="header">
         <Title contentTitle = "Rick and Morty"/>
       </header>
+      <p>{inputError}</p>
       <SearchBar
         busqueda = {busqueda}
         handleSearch = {handleSearch} />
+
       { //Paginación
         (info === null) ?
           <p>No hay páginas</p>
